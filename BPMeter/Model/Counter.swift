@@ -31,14 +31,21 @@ class Counter {
             
             timerFinish = DispatchTime.now()
             let nanoTime = timerFinish.uptimeNanoseconds - timerStart.uptimeNanoseconds
-            timePassed.append(Double(nanoTime) / 1000000000)
-            if timePassed.count > 4 {
-                timePassed.remove(at: 0)
-            }
-            print(timePassed.count)
+            let secTime = Double(nanoTime) / 1000000000
             
-            for i in 1...timePassed.count {
-                print(timePassed[i - 1])
+            if secTime < 2.0 {
+                timePassed.append(secTime)
+                
+                if timePassed.count > 4 {
+                    timePassed.remove(at: 0)
+                }
+                print(timePassed.count)
+                
+                for i in 1...timePassed.count {
+                    print(timePassed[i - 1])
+                }
+            } else {
+                Reset()
             }
             
             timerStart = timerFinish
@@ -61,5 +68,6 @@ class Counter {
     func Reset() {
         timePassed.removeAll()
         tapCount = 0
+        print("Timer has been reset.")
     }
 }
