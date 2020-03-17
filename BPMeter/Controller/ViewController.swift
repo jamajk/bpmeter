@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
     let counter = Counter()
-    
+    let systemSoundID: SystemSoundID = 1105
     
     @IBOutlet weak var bpmLabel: UILabel!
     
     @objc func mainTap(sender: UITapGestureRecognizer) {
         counter.Tap()
         bpmLabel.text = String(Int(counter.Calculate()))
-        
         UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
+        
+        AudioServicesPlaySystemSound(systemSoundID)
     }
     
     override func viewDidLoad() {
@@ -40,7 +42,6 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(mainTap(sender:)))
         view.addGestureRecognizer(tap)
     }
-
 
 }
 
