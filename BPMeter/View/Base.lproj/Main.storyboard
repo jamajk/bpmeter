@@ -39,5 +39,57 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
+        <!--Metronome View Controller-->
+        <scene sceneID="pdc-CQ-jJb">
+            <objects>
+                <viewController storyboardIdentifier="Metronome" id="6wO-WX-N40" userLabel="Metronome View Controller" customClass="MetronomeViewController" customModule="BPMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ums-h8-tHq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7i-FI-O1Y" userLabel="Tempo Label">
+                                <rect key="frame" x="160.5" y="176" width="93.5" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" maximumValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-ox-xSY">
+                                <rect key="frame" x="160" y="359" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="valueChange:" destination="6wO-WX-N40" eventType="valueChanged" id="kRf-Wh-kok"/>
+                                </connections>
+                            </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2a-QU-mu5">
+                                <rect key="frame" x="142" y="487" width="131" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="Finish"/>
+                                <state key="highlighted" title="Finish"/>
+                                <connections>
+                                    <action selector="pressedStart:" destination="6wO-WX-N40" eventType="touchUpInside" id="9h5-C4-XdP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="U7i-FI-O1Y" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="vdb-w1-Lo5"/>
+                            <constraint firstItem="U7i-FI-O1Y" firstAttribute="top" secondItem="0G3-10-j8G" secondAttribute="top" constant="132" id="wHn-7z-owR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0G3-10-j8G"/>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="o2a-QU-mu5" id="Mey-6Y-ASv"/>
+                        <outlet property="stepper" destination="zlS-ox-xSY" id="LQq-4Z-Y52"/>
+                        <outlet property="tempoLabel" destination="U7i-FI-O1Y" id="HQ5-ec-xja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mD3-Ij-tJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="110.49107142857143"/>
+        </scene>
     </scenes>
 </document>

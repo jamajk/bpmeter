@@ -31,7 +31,7 @@ class Counter {
             
             timerFinish = DispatchTime.now()
             let nanoTime = timerFinish.uptimeNanoseconds - timerStart.uptimeNanoseconds
-            let secTime = Double(nanoTime) / 1000000000
+            let secTime = Double(nanoTime) / 1_000_000_000
             
             if secTime < 2.0 {
                 timePassed.append(secTime)
