@@ -27,7 +27,7 @@ class MeterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bpmLabel.adjustsFontSizeToFitWidth = true
-        bpmLabel.text = "Start tapping"
+        
         view.backgroundColor = .systemTeal
         
         let gradientLayer = CAGradientLayer()
@@ -41,6 +41,10 @@ class MeterViewController: UIViewController {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(mainTap(sender:)))
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        bpmLabel.text = "Start tapping"
     }
 
 }

@@ -53,9 +53,12 @@ class MetronomeViewController: UIViewController {
         
         tempoLabel.text = String(Int(stepper.value))
         
+        view.backgroundColor = .systemTeal
+        
         let gradientLayer = CAGradientLayer()
+
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
 
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)

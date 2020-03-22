@@ -16,6 +16,7 @@
 		3B856E0F2427884B000FA895 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E0E2427884B000FA895 /* Metronome.swift */; };
 		3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E102427A0E0000FA895 /* MetronomeViewController.swift */; };
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
+		3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3B856E0E2427884B000FA895 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		3B856E102427A0E0000FA895 /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeViewController.swift; sourceTree = "<group>"; };
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				3B33B6B2240A78B300D675BC /* MeterViewController.swift */,
 				3B856E102427A0E0000FA895 /* MetronomeViewController.swift */,
+				3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B856E0F2427884B000FA895 /* Metronome.swift in Sources */,
+				3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */,
 				3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */,
 				3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */,
 				3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */,
