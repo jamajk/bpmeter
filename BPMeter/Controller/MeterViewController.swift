@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class MeterViewController: UIViewController {
 
     let counter = Counter()
     let systemSoundID: SystemSoundID = 1105

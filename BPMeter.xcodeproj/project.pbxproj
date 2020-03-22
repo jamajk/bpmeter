@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		3B33B6AF240A78B300D675BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33B6AE240A78B300D675BC /* AppDelegate.swift */; };
 		3B33B6B1240A78B300D675BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33B6B0240A78B300D675BC /* SceneDelegate.swift */; };
-		3B33B6B3240A78B300D675BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33B6B2240A78B300D675BC /* ViewController.swift */; };
+		3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33B6B2240A78B300D675BC /* MeterViewController.swift */; };
 		3B33B6B6240A78B300D675BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B4240A78B300D675BC /* Main.storyboard */; };
 		3B33B6B8240A78B600D675BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B7240A78B600D675BC /* Assets.xcassets */; };
 		3B33B6BB240A78B600D675BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B9240A78B600D675BC /* LaunchScreen.storyboard */; };
+		3B856E0F2427884B000FA895 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E0E2427884B000FA895 /* Metronome.swift */; };
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +21,12 @@
 		3B33B6AB240A78B300D675BC /* BPMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BPMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B33B6AE240A78B300D675BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B33B6B0240A78B300D675BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B33B6B2240A78B300D675BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B33B6B2240A78B300D675BC /* MeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterViewController.swift; sourceTree = "<group>"; };
 		3B33B6B5240A78B300D675BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B33B6B7240A78B600D675BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B33B6BA240A78B600D675BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B33B6BC240A78B600D675BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B856E0E2427884B000FA895 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA08C41240C5AFF00BFDE41 /* Counter.swift */,
+				3B856E0E2427884B000FA895 /* Metronome.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,7 +81,7 @@
 		3B33B6C3240A791C00D675BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3B33B6B2240A78B300D675BC /* ViewController.swift */,
+				3B33B6B2240A78B300D675BC /* MeterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,8 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B856E0F2427884B000FA895 /* Metronome.swift in Sources */,
 				3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */,
-				3B33B6B3240A78B300D675BC /* ViewController.swift in Sources */,
+				3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */,
 				3B33B6AF240A78B300D675BC /* AppDelegate.swift in Sources */,
 				3B33B6B1240A78B300D675BC /* SceneDelegate.swift in Sources */,
 			);
