@@ -5,12 +5,12 @@
 //  Created by Jakub Majkowski on 22/03/2020.
 //  Copyright © 2020 Jakub Majkowski. All rights reserved.
 //
+//  This was mostly copied
 import UIKit
 
 class PageViewController: UIPageViewController {
     
-    weak var pageDelegate: PageViewControllerDelegate?
-    
+
     
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
@@ -40,15 +40,6 @@ class PageViewController: UIPageViewController {
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
         }
-        
-        pageDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageCount: orderedViewControllers.count)
-    }
-    
-    func scrollToNextViewController() {
-        if let visibleViewController = viewControllers?.first,
-            let nextViewController = pageViewController(self, viewControllerAfter: visibleViewController) {
-                    scrollToViewController(viewController: nextViewController)
-        }
     }
     
     func scrollToViewController(index newIndex: Int) {
@@ -66,15 +57,8 @@ class PageViewController: UIPageViewController {
             direction: direction,
             animated: true,
             completion: { (finished) -> Void in
-                self.notifyTutorialDelegateOfNewIndex()
+         //       self.notifyTutorialDelegateOfNewIndex()
         })
-    }
-    
-    private func notifyTutorialDelegateOfNewIndex() {
-        if let firstViewController = viewControllers?.first,
-            let index = orderedViewControllers.firstIndex(of: firstViewController) {
-                pageDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageIndex: index)
-        }
     }
     
 }
@@ -122,18 +106,5 @@ extension PageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
         didFinishAnimating finished: Bool,
         previousViewControllers: [UIViewController],
-        transitionCompleted completed: Bool) {
-        notifyTutorialDelegateOfNewIndex()
-    }
-    
-}
-
-protocol PageViewControllerDelegate: class {
-    
-    func tutorialPageViewController(tutorialPageViewController: PageViewController,
-        didUpdatePageCount count: Int)
-    
-    func tutorialPageViewController(tutorialPageViewController: PageViewController,
-        didUpdatePageIndex index: Int)
-    
+        transitionCompleted completed: Bool) {}
 }

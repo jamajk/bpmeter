@@ -19,7 +19,7 @@ class MeterViewController: UIViewController {
     @objc func mainTap(sender: UITapGestureRecognizer) {
         counter.Tap()
         bpmLabel.text = String(Int(counter.Calculate()))
-        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
         
         AudioServicesPlaySystemSound(systemSoundID)
     }
