@@ -82,6 +82,8 @@ class MetronomeViewController: UIViewController {
         tempoLabel.text = String(Int(stepper.value))
         stepper.isHidden = true
         
+        startButton.layer.cornerRadius = 10.0
+        
         view.backgroundColor = .systemTeal
         
         let gradientLayer = CAGradientLayer()

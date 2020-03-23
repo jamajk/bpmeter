@@ -68,18 +68,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" maximumValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-ox-xSY">
-                                <rect key="frame" x="160" y="359" width="94" height="32"/>
+                                <rect key="frame" x="160" y="273" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="valueChange:" destination="6wO-WX-N40" eventType="valueChanged" id="kRf-Wh-kok"/>
                                 </connections>
                             </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2a-QU-mu5">
-                                <rect key="frame" x="142" y="487" width="131" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2a-QU-mu5">
+                                <rect key="frame" x="132" y="378" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="0.35086686643835618" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="cO1-cL-2jR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="dKR-W8-FaD"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal" image="power" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <state key="selected" title="Finish"/>
                                 <connections>
@@ -89,6 +93,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="o2a-QU-mu5" firstAttribute="centerY" secondItem="0G3-10-j8G" secondAttribute="centerY" id="Fh4-l6-OeL"/>
+                            <constraint firstItem="o2a-QU-mu5" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="cFx-qI-dfI"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="vdb-w1-Lo5"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="top" secondItem="0G3-10-j8G" secondAttribute="top" constant="132" id="wHn-7z-owR"/>
                         </constraints>
@@ -105,4 +111,7 @@
             <point key="canvasLocation" x="928.98550724637687" y="110.49107142857143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="power" catalog="system" width="64" height="62"/>
+    </resources>
 </document>
