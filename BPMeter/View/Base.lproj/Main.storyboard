@@ -76,7 +76,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="selected" title="Finish"/>
-                                <state key="highlighted" title="Finish"/>
                                 <connections>
                                     <action selector="pressedStart:" destination="6wO-WX-N40" eventType="touchUpInside" id="9h5-C4-XdP"/>
                                 </connections>

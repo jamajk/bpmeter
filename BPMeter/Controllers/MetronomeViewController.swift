@@ -58,12 +58,29 @@ class MetronomeViewController: UIViewController {
             AudioServicesPlaySystemSound(self.systemSoundID)
         })
     }
+    
+    @objc func pan(gesture: UIPanGestureRecognizer) {
+        let yTranslation = gesture.translation(in: gesture.view).y
+        let tolerance: CGFloat = 10.0
+        
+        print(yTranslation)
+        
+        if abs(yTranslation) >= tolerance {
+            let newValue = stepper.value - Double(yTranslation / tolerance)
+            print("stepper value \(stepper.value)")
+            stepper.value = newValue
+            print("stepper value new \(stepper.value)")
+            valueChange(stepper!)
+            gesture.setTranslation(.zero, in: gesture.view)
+        }
+    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tempoLabel.text = String(Int(stepper.value))
+        stepper.isHidden = true
         
         view.backgroundColor = .systemTeal
         
@@ -76,5 +93,15 @@ class MetronomeViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(gesture:)))
+        pan.minimumNumberOfTouches = 2
+        view.addGestureRecognizer(pan)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        timer.invalidate()
+        isToggled = false
+        print("timer finished")
     }
 }
