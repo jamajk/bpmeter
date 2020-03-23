@@ -100,8 +100,10 @@ class MetronomeViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        timer.invalidate()
-        isToggled = false
-        print("timer finished")
+        if isToggled {
+            timer.invalidate()
+            isToggled = false
+            print("timer finished")
+        }
     }
 }

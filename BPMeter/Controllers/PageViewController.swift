@@ -11,6 +11,8 @@ class PageViewController: UIPageViewController {
     
     weak var pageDelegate: PageViewControllerDelegate?
     
+    
+    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
             self.newViewController(name: "Meter"),
@@ -26,6 +28,14 @@ class PageViewController: UIPageViewController {
         
         dataSource = self
         delegate = self
+        
+        view.backgroundColor = .systemTeal
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
