@@ -24,27 +24,39 @@ class MetronomeViewController: UIViewController {
     
     @IBAction func valueChange(_ sender: Any) {
         tempoLabel.text = String(Int(stepper.value))
+        if isToggled {
+            timer.invalidate()
+            startTimer(withTime: getTime())
+        }
     }
-    @IBAction func pressedStart(_ sender: Any) { //TODO Probably create a proper toggle button
+    @IBAction func pressedStart(_ sender: Any) {
         isToggled = !isToggled
         
         if isToggled {
-            let bpm = Int(stepper.value)
-            let time = metronome.calctuateTime(speed: bpm)
-            
             //startButton.isSelected = true
             print("timer started")
-            
-            timer = Timer.scheduledTimer(withTimeInterval: time, repeats: true, block: {_ in
-                print("tick")
-                AudioServicesPlaySystemSound(self.systemSoundID)
-            })
+            startTimer(withTime: getTime())
         }
         else {
             timer.invalidate()
             print("timer finished")
             //startButton.isSelected = false
         }
+    }
+    
+    private func getTime() -> Double {
+        let bpm = Int(stepper.value)
+        let time = metronome.calctuateTime(speed: bpm)
+        return time
+    }
+    
+    private func startTimer(withTime: Double) {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: withTime, repeats: true, block: {_ in
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
+            AudioServicesPlaySystemSound(self.systemSoundID)
+        })
     }
 
     
