@@ -34,12 +34,10 @@ class MetronomeViewController: UIViewController {
         isToggled = !isToggled
         
         if isToggled {
-            //startButton.isSelected = true
             startTimer(withTime: getTime())
         }
         else {
             endTimer()
-            //startButton.isSelected = false
         }
     }
     
@@ -73,9 +71,7 @@ class MetronomeViewController: UIViewController {
         
         if abs(yTranslation) >= tolerance {
             let newValue = stepper.value - Double(yTranslation / tolerance)
-            print("stepper value \(stepper.value)")
             stepper.value = newValue
-            print("stepper value new \(stepper.value)")
             valueChange(stepper!)
             gesture.setTranslation(.zero, in: gesture.view)
         }
@@ -117,7 +113,6 @@ class MetronomeViewController: UIViewController {
         if isToggled {
             timer.invalidate()
             isToggled = false
-            print("timer finished")
         }
     }
 }

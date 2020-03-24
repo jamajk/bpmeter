@@ -5,13 +5,9 @@
 //  Created by Jakub Majkowski on 22/03/2020.
 //  Copyright © 2020 Jakub Majkowski. All rights reserved.
 //
-//  This was mostly copied
 import UIKit
 
 class PageViewController: UIPageViewController {
-    
-
-    
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
@@ -56,9 +52,7 @@ class PageViewController: UIPageViewController {
         setViewControllers([viewController],
             direction: direction,
             animated: true,
-            completion: { (finished) -> Void in
-         //       self.notifyTutorialDelegateOfNewIndex()
-        })
+            completion: { (finished) -> Void in })
     }
     
 }

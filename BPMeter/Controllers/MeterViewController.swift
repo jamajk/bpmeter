@@ -45,6 +45,7 @@ class MeterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         bpmLabel.text = "Start tapping"
+        counter.Reset()
     }
 
 }

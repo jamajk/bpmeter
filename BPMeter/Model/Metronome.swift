@@ -11,8 +11,6 @@ import Foundation
 class Metronome {
     func calctuateTime(speed: Int) -> Double {
         let time = 60.0 / Double(speed)
-        print(speed)
-        print(time)
         return time
     }
 }

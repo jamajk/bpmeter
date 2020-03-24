@@ -13,6 +13,8 @@ class Counter {
     var tapCount = 0
     var timePassed: [Double] = []
     
+    let maxCount = 6
+    
     var timerStart: DispatchTime
     var timerFinish: DispatchTime
     
@@ -36,7 +38,7 @@ class Counter {
             if secTime < 2.0 {
                 timePassed.append(secTime)
                 
-                if timePassed.count > 4 {
+                if timePassed.count > maxCount {
                     timePassed.remove(at: 0)
                 }
                 print(timePassed.count)
