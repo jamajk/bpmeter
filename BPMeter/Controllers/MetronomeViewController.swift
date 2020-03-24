@@ -21,6 +21,7 @@ class MetronomeViewController: UIViewController {
     @IBOutlet weak var tempoLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var indicator: UIView!
     
     @IBAction func valueChange(_ sender: Any) {
         tempoLabel.text = String(Int(stepper.value))
@@ -34,12 +35,10 @@ class MetronomeViewController: UIViewController {
         
         if isToggled {
             //startButton.isSelected = true
-            print("timer started")
             startTimer(withTime: getTime())
         }
         else {
-            timer.invalidate()
-            print("timer finished")
+            endTimer()
             //startButton.isSelected = false
         }
     }
@@ -51,12 +50,19 @@ class MetronomeViewController: UIViewController {
     }
     
     private func startTimer(withTime: Double) {
-        
+        indicator.backgroundColor = .green
+        indicator.layer.shadowOpacity = 1
         timer = Timer.scheduledTimer(withTimeInterval: withTime, repeats: true, block: {_ in
             
             UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
             AudioServicesPlaySystemSound(self.systemSoundID)
         })
+    }
+    
+    private func endTimer() {
+        timer.invalidate()
+        indicator.backgroundColor = .darkGray
+        indicator.layer.shadowOpacity = 0
     }
     
     @objc func pan(gesture: UIPanGestureRecognizer) {
@@ -83,6 +89,12 @@ class MetronomeViewController: UIViewController {
         stepper.isHidden = true
         
         startButton.layer.cornerRadius = 10.0
+        indicator.layer.cornerRadius = 5.0
+        
+        indicator.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        indicator.layer.shadowColor = UIColor.green.cgColor
+        indicator.layer.shadowRadius = 5.0
+        indicator.layer.shadowOpacity = 0
         
         view.backgroundColor = .systemTeal
         

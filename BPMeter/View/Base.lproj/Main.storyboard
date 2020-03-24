@@ -35,11 +35,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="orP-1U-LWD">
+                                <rect key="frame" x="195.5" y="825" width="23" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="orP-1U-LWD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0ep-Nv-ejH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3WE-Di-RQ3" secondAttribute="trailing" constant="89" id="Fvb-cv-fg5"/>
                             <constraint firstItem="3WE-Di-RQ3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ji2-xL-Stq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="orP-1U-LWD" secondAttribute="bottom" id="hSb-wx-mX7"/>
                             <constraint firstItem="3WE-Di-RQ3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="127" id="k8w-Lx-ktD"/>
                             <constraint firstItem="3WE-Di-RQ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="o3u-b2-0zL"/>
                         </constraints>
@@ -90,17 +95,33 @@
                                     <action selector="pressedStart:" destination="6wO-WX-N40" eventType="touchUpInside" id="9h5-C4-XdP"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Laz-Io-jwH">
+                                <rect key="frame" x="195.5" y="825" width="23" height="37"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76R-RX-ybc" userLabel="Indicator">
+                                <rect key="frame" x="202" y="545" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="1Qi-xY-pG0"/>
+                                    <constraint firstAttribute="width" constant="10" id="3yV-vT-bDg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="76R-RX-ybc" firstAttribute="top" secondItem="o2a-QU-mu5" secondAttribute="bottom" constant="17" id="2gD-lg-O8k"/>
                             <constraint firstItem="o2a-QU-mu5" firstAttribute="centerY" secondItem="0G3-10-j8G" secondAttribute="centerY" id="Fh4-l6-OeL"/>
                             <constraint firstItem="o2a-QU-mu5" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="cFx-qI-dfI"/>
+                            <constraint firstItem="Laz-Io-jwH" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="e1o-dd-GR1"/>
+                            <constraint firstItem="0G3-10-j8G" firstAttribute="bottom" secondItem="Laz-Io-jwH" secondAttribute="bottom" id="jSl-Aa-FhW"/>
+                            <constraint firstItem="76R-RX-ybc" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="jYd-ct-hWU"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="vdb-w1-Lo5"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="top" secondItem="0G3-10-j8G" secondAttribute="top" constant="132" id="wHn-7z-owR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0G3-10-j8G"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="76R-RX-ybc" id="R4O-KP-Muh"/>
                         <outlet property="startButton" destination="o2a-QU-mu5" id="Mey-6Y-ASv"/>
                         <outlet property="stepper" destination="zlS-ox-xSY" id="LQq-4Z-Y52"/>
                         <outlet property="tempoLabel" destination="U7i-FI-O1Y" id="HQ5-ec-xja"/>
