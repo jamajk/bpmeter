@@ -100,7 +100,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up/down with two fingers to adjust the tempo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-RU-jiW" userLabel="Info Label">
-                                <rect key="frame" x="85" y="603" width="244" height="41"/>
+                                <rect key="frame" x="48" y="603" width="318.5" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -114,10 +114,10 @@
                             <constraint firstItem="o2a-QU-mu5" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="cFx-qI-dfI"/>
                             <constraint firstItem="76R-RX-ybc" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="jYd-ct-hWU"/>
                             <constraint firstItem="FrW-RU-jiW" firstAttribute="top" secondItem="o2a-QU-mu5" secondAttribute="bottom" constant="90" id="lTX-2F-8lZ"/>
-                            <constraint firstItem="FrW-RU-jiW" firstAttribute="leading" secondItem="0G3-10-j8G" secondAttribute="leading" constant="85" id="unl-GH-WKX"/>
+                            <constraint firstItem="FrW-RU-jiW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0G3-10-j8G" secondAttribute="leading" constant="10" id="unl-GH-WKX"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="centerX" secondItem="0G3-10-j8G" secondAttribute="centerX" id="vdb-w1-Lo5"/>
                             <constraint firstItem="U7i-FI-O1Y" firstAttribute="top" secondItem="0G3-10-j8G" secondAttribute="top" constant="132" id="wHn-7z-owR"/>
-                            <constraint firstItem="0G3-10-j8G" firstAttribute="trailing" secondItem="FrW-RU-jiW" secondAttribute="trailing" constant="85" id="zsv-vA-yq2"/>
+                            <constraint firstItem="0G3-10-j8G" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FrW-RU-jiW" secondAttribute="trailing" constant="10" id="zsv-vA-yq2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0G3-10-j8G"/>
                     </view>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mD3-Ij-tJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="110.49107142857143"/>
+            <point key="canvasLocation" x="928.79999999999995" y="110.19490254872565"/>
         </scene>
     </scenes>
     <resources>

@@ -70,6 +70,5 @@ class Counter {
     func Reset() {
         timePassed.removeAll()
         tapCount = 0
-        print("Timer has been reset.")
     }
 }
