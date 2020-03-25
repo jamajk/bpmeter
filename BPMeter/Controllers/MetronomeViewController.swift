@@ -22,6 +22,7 @@ class MetronomeViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var indicator: UIView!
+    @IBOutlet weak var infoLabel: UILabel!
     
     @IBAction func valueChange(_ sender: Any) {
         tempoLabel.text = String(Int(stepper.value))
@@ -81,12 +82,13 @@ class MetronomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        infoLabel.alpha = 0
         tempoLabel.text = String(Int(stepper.value))
         stepper.isHidden = true
         
         startButton.layer.cornerRadius = 10.0
-        indicator.layer.cornerRadius = 5.0
         
+        indicator.layer.cornerRadius = 5.0
         indicator.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         indicator.layer.shadowColor = UIColor.green.cgColor
         indicator.layer.shadowRadius = 5.0
@@ -95,23 +97,29 @@ class MetronomeViewController: UIViewController {
         view.backgroundColor = .systemTeal
         
         let gradientLayer = CAGradientLayer()
-
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(gesture:)))
         pan.minimumNumberOfTouches = 2
         view.addGestureRecognizer(pan)
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 2.0, options: [], animations: {
+            self.infoLabel.alpha = 1
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.5, delay: 3.0, options: [], animations: { //oh no
+                self.infoLabel.alpha = 0
+            }, completion: {_ in})
+        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         if isToggled {
-            timer.invalidate()
+            endTimer()
             isToggled = false
         }
     }
