@@ -13,6 +13,7 @@
 		3B33B6B6240A78B300D675BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B4240A78B300D675BC /* Main.storyboard */; };
 		3B33B6B8240A78B600D675BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B7240A78B600D675BC /* Assets.xcassets */; };
 		3B33B6BB240A78B600D675BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B9240A78B600D675BC /* LaunchScreen.storyboard */; };
+		3B65034D2430EA6C00B6F4A9 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65034C2430EA6C00B6F4A9 /* HelpViewController.swift */; };
 		3B856E0F2427884B000FA895 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E0E2427884B000FA895 /* Metronome.swift */; };
 		3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E102427A0E0000FA895 /* MetronomeViewController.swift */; };
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
@@ -28,6 +29,7 @@
 		3B33B6B7240A78B600D675BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B33B6BA240A78B600D675BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B33B6BC240A78B600D675BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B65034C2430EA6C00B6F4A9 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		3B856E0E2427884B000FA895 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		3B856E102427A0E0000FA895 /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeViewController.swift; sourceTree = "<group>"; };
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3B33B6B2240A78B300D675BC /* MeterViewController.swift */,
 				3B856E102427A0E0000FA895 /* MetronomeViewController.swift */,
 				3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */,
+				3B65034C2430EA6C00B6F4A9 /* HelpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				3B856E0F2427884B000FA895 /* Metronome.swift in Sources */,
 				3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */,
 				3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */,
+				3B65034D2430EA6C00B6F4A9 /* HelpViewController.swift in Sources */,
 				3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */,
 				3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */,
 				3B33B6AF240A78B300D675BC /* AppDelegate.swift in Sources */,
