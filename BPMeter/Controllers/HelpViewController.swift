@@ -34,5 +34,4 @@ class HelpViewController: UIViewController {
         
         highlightView.layer.cornerRadius = 10
     }
-
 }
