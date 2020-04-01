@@ -27,18 +27,7 @@ class MeterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bpmLabel.adjustsFontSizeToFitWidth = true
-        
-        view.backgroundColor = .systemTeal
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-
+        setupGradient()
         let tap = UITapGestureRecognizer(target: self, action: #selector(mainTap(sender:)))
         view.addGestureRecognizer(tap)
     }
@@ -46,6 +35,16 @@ class MeterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         bpmLabel.text = "Start tapping"
         counter.Reset()
+    }
+    
+    private func setupGradient() {
+        view.backgroundColor = .systemTeal
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
 }

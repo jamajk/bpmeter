@@ -81,32 +81,15 @@ class MetronomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         infoLabel.alpha = 0
         tempoLabel.text = String(Int(stepper.value))
         stepper.isHidden = true
-        
         startButton.layer.cornerRadius = 10.0
-        
-        indicator.layer.cornerRadius = 5.0
-        indicator.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        indicator.layer.shadowColor = UIColor.green.cgColor
-        indicator.layer.shadowRadius = 5.0
-        indicator.layer.shadowOpacity = 0
-        
-        view.backgroundColor = .systemTeal
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-        
+        setupIndicator()
+        setupGradient()
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(gesture:)))
         pan.minimumNumberOfTouches = 2
         view.addGestureRecognizer(pan)
-        
         
         UIView.animate(withDuration: 0.5, delay: 2.0, options: [], animations: {
             self.infoLabel.alpha = 1
@@ -122,5 +105,23 @@ class MetronomeViewController: UIViewController {
             endTimer()
             isToggled = false
         }
+    }
+    
+    private func setupGradient() {
+        view.backgroundColor = .systemTeal
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    private func setupIndicator() {
+        indicator.layer.cornerRadius = 5.0
+        indicator.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        indicator.layer.shadowColor = UIColor.green.cgColor
+        indicator.layer.shadowRadius = 5.0
+        indicator.layer.shadowOpacity = 0
     }
 }
