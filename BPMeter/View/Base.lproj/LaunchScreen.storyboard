@@ -14,7 +14,21 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bpmeter icon png.png" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-ck-xQ0">
+                                <rect key="frame" x="50" y="296" width="314" height="314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aN0-ck-xQ0" secondAttribute="height" multiplier="1:1" id="Uaj-vW-TbF"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aN0-ck-xQ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0Ld-nq-4dI"/>
+                            <constraint firstItem="aN0-ck-xQ0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BBn-sO-nkc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aN0-ck-xQ0" secondAttribute="trailing" constant="50" id="EOP-Nk-60i"/>
+                            <constraint firstItem="aN0-ck-xQ0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zLP-Ot-dXl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -23,4 +37,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bpmeter icon png.png" width="1024" height="1024"/>
+    </resources>
 </document>

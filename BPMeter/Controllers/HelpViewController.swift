@@ -16,22 +16,10 @@ class HelpViewController: UIViewController {
         super.viewDidLoad()
 
         if !UIAccessibility.isReduceTransparencyEnabled {
-            view.backgroundColor = .clear
-            let blurEffect = UIBlurEffect(style: .regular)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = self.view.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            view.insertSubview(blurEffectView, at: 0)
+            Setup.setupBlur(inView: view)
         } else {
-            view.backgroundColor = .systemTeal
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.frame = self.view.bounds
-            gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-            gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-            gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-            self.view.layer.insertSublayer(gradientLayer, at: 0)
+            Setup.setupGradient(inView: view)
         }
-        
         highlightView.layer.cornerRadius = 10
     }
 }

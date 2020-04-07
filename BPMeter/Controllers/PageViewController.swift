@@ -21,11 +21,9 @@ class PageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dataSource = self
         delegate = self
-        
-        setupGradient()
+        Setup.setupGradient(inView: view)
         
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
@@ -48,16 +46,6 @@ class PageViewController: UIPageViewController {
             animated: true,
             completion: { (finished) -> Void in })
     }
-    
-    private func setupGradient() {
-           view.backgroundColor = .systemTeal
-           let gradientLayer = CAGradientLayer()
-           gradientLayer.frame = self.view.bounds
-           gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-           gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-           gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-           self.view.layer.insertSublayer(gradientLayer, at: 0)
-       }
 }
 
 extension PageViewController: UIPageViewControllerDataSource {
@@ -67,15 +55,11 @@ extension PageViewController: UIPageViewControllerDataSource {
             guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
                 return nil
             }
-            
             let previousIndex = viewControllerIndex - 1
-        
-             guard previousIndex >= 0 else { return nil }
-            
+            guard previousIndex >= 0 else { return nil }
             guard orderedViewControllers.count > previousIndex else {
                 return nil
             }
-            
             return orderedViewControllers[previousIndex]
     }
 
@@ -87,7 +71,6 @@ extension PageViewController: UIPageViewControllerDataSource {
             
             let nextIndex = viewControllerIndex + 1
             let orderedViewControllersCount = orderedViewControllers.count
-            
             
             guard orderedViewControllersCount > nextIndex else {
                 return nil

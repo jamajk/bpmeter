@@ -19,15 +19,14 @@ class MeterViewController: UIViewController {
     @objc func mainTap(sender: UITapGestureRecognizer) {
         counter.Tap()
         bpmLabel.text = String(Int(counter.Calculate()))
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {self.view.backgroundColor = UIColor.lightGray; self.view.backgroundColor = UIColor.systemTeal}, completion: nil)
-        
+        Animator.animateBackground(ofView: view)
         AudioServicesPlaySystemSound(systemSoundID)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bpmLabel.adjustsFontSizeToFitWidth = true
-        setupGradient()
+        Setup.setupGradient(inView: view)
         let tap = UITapGestureRecognizer(target: self, action: #selector(mainTap(sender:)))
         view.addGestureRecognizer(tap)
     }
@@ -37,15 +36,5 @@ class MeterViewController: UIViewController {
         counter.Reset()
     }
     
-    private func setupGradient() {
-        view.backgroundColor = .systemTeal
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
-
 }
 
