@@ -10,11 +10,13 @@ import UIKit
 
 class Setup {
     
+    static var vibrationsEnabled: Bool = true
+    
     static func setupGradient(inView: UIView) {
-        inView.backgroundColor = .systemTeal
+        inView.backgroundColor = UIColor.adaptiveColorOne
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = inView.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.systemPurple.cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.adaptiveColorTwo.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         inView.layer.insertSublayer(gradientLayer, at: 0)
@@ -36,4 +38,38 @@ class Setup {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         inView.insertSubview(blurEffectView, at: 0)
     }
+    
+    init() {
+        Setup.vibrationsEnabled = UserDefaults.standard.bool(forKey: "feedbackEnable")
+    }
+}
+
+extension UIColor {
+    static let adaptiveColorOne: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    return UIColor.black
+                } else {
+                    return UIColor.systemTeal
+                }
+            }
+        } else {
+            return UIColor.systemTeal
+        }
+    }()
+    
+    static let adaptiveColorTwo: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    return UIColor.purple
+                } else {
+                    return UIColor.systemPurple
+                }
+            }
+        } else {
+            return UIColor.systemPurple
+        }
+    }()
 }

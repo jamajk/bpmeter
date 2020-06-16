@@ -10,7 +10,7 @@ import UIKit
 
 class Animator {
     static func animateBackground(ofView: UIView) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {ofView.backgroundColor = UIColor.lightGray; ofView.backgroundColor = UIColor.systemTeal}, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut,  .allowUserInteraction], animations: {ofView.backgroundColor = UIColor.lightGray; ofView.backgroundColor = UIColor.adaptiveColorOne}, completion: nil)
     }
     
     static func animateText(ofLabel: UILabel) {

@@ -13,6 +13,7 @@ class MetronomeViewController: UIViewController {
     
     let metronome = Metronome()
     let systemSoundID: SystemSoundID = 1105
+    let generator = UIImpactFeedbackGenerator(style: .light)
      
     var timer = Timer()
     var isToggled: Bool = false
@@ -52,6 +53,9 @@ class MetronomeViewController: UIViewController {
         indicator.backgroundColor = .green
         indicator.layer.shadowOpacity = 1
         timer = Timer.scheduledTimer(withTimeInterval: withTime, repeats: true, block: {_ in
+            if Setup.vibrationsEnabled {
+                self.generator.impactOccurred()
+            }
             Animator.animateBackground(ofView: self.view)
             AudioServicesPlaySystemSound(self.systemSoundID)
         })

@@ -9,6 +9,8 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
+    var pageDelegate: PageControlDelegate!
+    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
             self.newViewController(name: "Meter"),
@@ -84,7 +86,19 @@ extension PageViewController: UIPageViewControllerDataSource {
 extension PageViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController,
-        didFinishAnimating finished: Bool,
-        previousViewControllers: [UIViewController],
-        transitionCompleted completed: Bool) {}
+    didFinishAnimating finished: Bool,
+    previousViewControllers: [UIViewController],
+    transitionCompleted completed: Bool) {
+    if let firstViewController = viewControllers?.first,
+        let index = orderedViewControllers.firstIndex(of: firstViewController) {
+        pageDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageIndex: index)
+        }
+    }
+}
+
+protocol PageControlDelegate: class {
+    
+    func tutorialPageViewController(tutorialPageViewController: PageViewController,
+        didUpdatePageIndex index: Int)
+    
 }

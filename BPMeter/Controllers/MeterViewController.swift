@@ -13,6 +13,7 @@ class MeterViewController: UIViewController {
 
     let counter = Counter()
     let systemSoundID: SystemSoundID = 1105
+    let generator = UIImpactFeedbackGenerator(style: .light)
     
     @IBOutlet weak var bpmLabel: UILabel!
     
@@ -21,6 +22,9 @@ class MeterViewController: UIViewController {
         bpmLabel.text = String(Int(counter.Calculate()))
         Animator.animateBackground(ofView: view)
         AudioServicesPlaySystemSound(systemSoundID)
+        if Setup.vibrationsEnabled {
+            self.generator.impactOccurred()
+        }
     }
     
     override func viewDidLoad() {
