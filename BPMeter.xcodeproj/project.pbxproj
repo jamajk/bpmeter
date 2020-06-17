@@ -17,10 +17,10 @@
 		3B33B6B8240A78B600D675BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B7240A78B600D675BC /* Assets.xcassets */; };
 		3B33B6BB240A78B600D675BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B33B6B9240A78B600D675BC /* LaunchScreen.storyboard */; };
 		3B65034D2430EA6C00B6F4A9 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65034C2430EA6C00B6F4A9 /* HelpViewController.swift */; };
+		3B7292DA249AB243002C4421 /* rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7292D9249AB243002C4421 /* rounded.png */; };
 		3B856E0F2427884B000FA895 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E0E2427884B000FA895 /* Metronome.swift */; };
 		3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E102427A0E0000FA895 /* MetronomeViewController.swift */; };
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
-		3BAA7BC9243C78D700E9F05B /* bpmeter icon png.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BAA7BC8243C78D700E9F05B /* bpmeter icon png.png */; };
 		3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +37,10 @@
 		3B33B6BA240A78B600D675BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B33B6BC240A78B600D675BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B65034C2430EA6C00B6F4A9 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		3B7292D9249AB243002C4421 /* rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rounded.png; sourceTree = "<group>"; };
 		3B856E0E2427884B000FA895 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		3B856E102427A0E0000FA895 /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeViewController.swift; sourceTree = "<group>"; };
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		3BAA7BC8243C78D700E9F05B /* bpmeter icon png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bpmeter icon png.png"; path = "../../../bpmeter icon png.png"; sourceTree = "<group>"; };
 		3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 		3B33B6C4240A793900D675BC /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				3BAA7BC8243C78D700E9F05B /* bpmeter icon png.png */,
+				3B7292D9249AB243002C4421 /* rounded.png */,
 				3B33B6B7240A78B600D675BC /* Assets.xcassets */,
 				3B33B6B0240A78B300D675BC /* SceneDelegate.swift */,
 				3B33B6AE240A78B300D675BC /* AppDelegate.swift */,
@@ -192,7 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BAA7BC9243C78D700E9F05B /* bpmeter icon png.png in Resources */,
+				3B7292DA249AB243002C4421 /* rounded.png in Resources */,
 				3B33B6BB240A78B600D675BC /* LaunchScreen.storyboard in Resources */,
 				3B33B6B8240A78B600D675BC /* Assets.xcassets in Resources */,
 				3B33B6B6240A78B300D675BC /* Main.storyboard in Resources */,

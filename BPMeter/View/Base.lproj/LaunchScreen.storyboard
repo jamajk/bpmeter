@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bpmeter icon png.png" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-ck-xQ0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded.png" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-ck-xQ0">
                                 <rect key="frame" x="50" y="296" width="314" height="314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aN0-ck-xQ0" secondAttribute="height" multiplier="1:1" id="Uaj-vW-TbF"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bpmeter icon png.png" width="1024" height="1024"/>
+        <image name="rounded.png" width="1024" height="1024"/>
     </resources>
 </document>
