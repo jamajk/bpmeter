@@ -10,10 +10,12 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
-    @IBOutlet weak var pageControl: UIPageControl!
+
+    @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.maxX, height: view.frame.maxY)
     }
 }
 

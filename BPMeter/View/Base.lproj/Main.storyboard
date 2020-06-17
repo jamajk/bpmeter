@@ -10,9 +10,6 @@
         <!--Page View Controller-->
         <scene sceneID="PMr-9Y-YoO">
             <objects>
-                <pageViewController transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U05-ep-eqc" customClass="PageViewController" customModule="BPMeter" customModuleProvider="target" sceneMemberID="viewController">
-                    <size key="freeformSize" width="414" height="896"/>
-                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAF-PN-zpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="P4t-7T-wYG">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -20,6 +17,9 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <viewLayoutGuide key="safeArea" id="maP-rs-RQq"/>
                 </view>
+                <pageViewController transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U05-ep-eqc" customClass="PageViewController" customModule="BPMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <size key="freeformSize" width="414" height="896"/>
+                </pageViewController>
             </objects>
             <point key="canvasLocation" x="-678" y="107"/>
         </scene>
@@ -63,8 +63,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HND-Vl-oSK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HND-Vl-oSK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -93,6 +93,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kvH-M8-64q"/>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="HND-Vl-oSK" id="BQ2-XR-Zbc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jt8-T7-7HO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

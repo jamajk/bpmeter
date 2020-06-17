@@ -24,14 +24,13 @@ class HelpViewController: UIViewController {
             Setup.vibrationsEnabled = false
             UserDefaults.standard.set(false, forKey: "feedbackEnable")
         }
-        UserDefaults.standard.set(sender.isOn, forKey: "hapticState")
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        feedbackSwitch.isOn =  UserDefaults.standard.bool(forKey: "hapticState")
+        feedbackSwitch.isOn =  UserDefaults.standard.bool(forKey: "feedbackEnable")
         if !UIAccessibility.isReduceTransparencyEnabled {
             Setup.setupBlur(inView: view)
         } else {

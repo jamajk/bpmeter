@@ -10,7 +10,7 @@ import UIKit
 
 class Setup {
     
-    static var vibrationsEnabled: Bool = true
+    static var vibrationsEnabled: Bool = UserDefaults.standard.bool(forKey: "feedbackEnable") 
     
     static func setupGradient(inView: UIView) {
         inView.backgroundColor = UIColor.adaptiveColorOne
@@ -37,10 +37,6 @@ class Setup {
         blurEffectView.frame = inView.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         inView.insertSubview(blurEffectView, at: 0)
-    }
-    
-    init() {
-        Setup.vibrationsEnabled = UserDefaults.standard.bool(forKey: "feedbackEnable")
     }
 }
 
