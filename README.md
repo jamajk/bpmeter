@@ -1,4 +1,4 @@
-# bpmeter
+# BPMeter
 A simple app featuring a tap tempo tool and a metronome for musicians.
 Supports dark mode.
 
