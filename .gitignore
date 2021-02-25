@@ -1,0 +1,9 @@
+xcuserdata/
+
+*.plist
+*.xcodeproj
+*.xcworkspace
+*.DS_Store
+*.lock
+
+/*.gcno
