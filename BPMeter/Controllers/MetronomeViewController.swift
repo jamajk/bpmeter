@@ -95,6 +95,14 @@ class MetronomeViewController: UIViewController {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(gesture:)))
         pan.minimumNumberOfTouches = 2
         view.addGestureRecognizer(pan)
+        
+        UIView.animate(withDuration: 0.5, delay: 3, options: .curveEaseInOut, animations: {
+            self.infoLabel.alpha = 1
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.5, delay: 3, options: .curveEaseInOut, animations: {
+                self.infoLabel.alpha = 0
+            }, completion: nil)
+        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {

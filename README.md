@@ -7,4 +7,10 @@ To guarantee a good experience, the clicks that the tools make are accompanied w
 
 Built using UIKit and Storyboards.
 
-
+<p align="center">
+  <img src="BPMeter/Other/m-light.png" width="350" title="Light mode - Metronome">
+  <img src="BPMeter/Other/m-dark.png" width="350" title="Dark mode - Metronome">
+  <img src="BPMeter/Other/tt-light.png" width="350" title="Light mode - Tap Tempo">
+  <img src="BPMeter/Other/s-light.png" width="350" title="Light mode - Info">
+  <img src="BPMeter/Other/s-dark.png" width="350" title="Dark mode - Info">
+</p>
