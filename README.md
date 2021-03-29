@@ -4,9 +4,9 @@ Supports dark mode.
 
 To guarantee a good experience, the clicks that the tools make are accompanied with audio and visual feedback as well as vibrations, which can be turned on/off.
 
-
 Built using UIKit and Storyboards.
 
+## Now available on App Store
 <p align="center">
   <img src="BPMeter/Other/m-light.png" width="350" title="Light mode - Metronome">
   <img src="BPMeter/Other/m-dark.png" width="350" title="Dark mode - Metronome">
