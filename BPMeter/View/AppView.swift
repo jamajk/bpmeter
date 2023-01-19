@@ -15,7 +15,8 @@ struct AppView: View {
     var body: some View {
         FeatureCarouselView(isShowingHelp: $isShowingHelp)
             .sheet(isPresented: $isShowingHelp) {
-                Color.pink
+                HelpView()
             }
     }
+
 }

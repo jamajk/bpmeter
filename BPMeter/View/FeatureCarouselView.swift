@@ -22,19 +22,21 @@ struct FeatureCarouselView: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .background(Color.blue.ignoresSafeArea())
-        .overlay(
-            VStack {
-                Spacer()
-                Button(action: { isShowingHelp.toggle() }) {
-                    Image(systemName: "questionmark.circle")
-                        .font(.system(size: 28))
-                        .foregroundColor(.gray)
-                }
-                .buttonStyle(.plain)
-                .padding(.bottom, 64)
+        .overlay(helpButtonOverlay)
+    }
 
+    private var helpButtonOverlay: some View {
+        VStack {
+            Spacer()
+            Button(action: { isShowingHelp.toggle() }) {
+                Image(systemName: "questionmark.circle")
+                    .font(.system(size: 28))
+                    .foregroundColor(.gray)
             }
-        )
+            .buttonStyle(.plain)
+            .padding(.bottom, 64)
+
+        }
     }
 }
 

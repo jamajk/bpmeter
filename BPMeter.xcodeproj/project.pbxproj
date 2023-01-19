@@ -24,6 +24,8 @@
 		3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */; };
 		41F7F37229799C9D0013016F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37129799C9D0013016F /* AppView.swift */; };
 		41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37329799E500013016F /* FeatureCarouselView.swift */; };
+		41F7F3762979A8490013016F /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F3752979A8490013016F /* HelpView.swift */; };
+		41F7F3792979AA020013016F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F3782979AA020013016F /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		41F7F37129799C9D0013016F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		41F7F37329799E500013016F /* FeatureCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCarouselView.swift; sourceTree = "<group>"; };
+		41F7F3752979A8490013016F /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		41F7F3782979AA020013016F /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +66,7 @@
 		3B00DAD6243CFE7A0068C2B9 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				3B00DAD7243CFE9A0068C2B9 /* Setup.swift */,
-				3B00DAD9243D01BD0068C2B9 /* Animator.swift */,
+				41F7F3772979A9A70013016F /* UIHelpers */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -136,8 +139,19 @@
 				3B33B6B9240A78B600D675BC /* LaunchScreen.storyboard */,
 				41F7F37129799C9D0013016F /* AppView.swift */,
 				41F7F37329799E500013016F /* FeatureCarouselView.swift */,
+				41F7F3752979A8490013016F /* HelpView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		41F7F3772979A9A70013016F /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B00DAD7243CFE9A0068C2B9 /* Setup.swift */,
+				3B00DAD9243D01BD0068C2B9 /* Animator.swift */,
+				41F7F3782979AA020013016F /* BlurView.swift */,
+			);
+			path = UIHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +228,9 @@
 			files = (
 				3B00DADA243D01BD0068C2B9 /* Animator.swift in Sources */,
 				3B856E0F2427884B000FA895 /* Metronome.swift in Sources */,
+				41F7F3792979AA020013016F /* BlurView.swift in Sources */,
 				3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */,
+				41F7F3762979A8490013016F /* HelpView.swift in Sources */,
 				3B18E3BF24504AB400E83F22 /* ContainerViewController.swift in Sources */,
 				41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */,
 				3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */,
