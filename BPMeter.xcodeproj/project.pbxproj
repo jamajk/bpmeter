@@ -22,6 +22,8 @@
 		3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B856E102427A0E0000FA895 /* MetronomeViewController.swift */; };
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
 		3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */; };
+		41F7F37229799C9D0013016F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37129799C9D0013016F /* AppView.swift */; };
+		41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37329799E500013016F /* FeatureCarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		3B856E102427A0E0000FA895 /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeViewController.swift; sourceTree = "<group>"; };
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		41F7F37129799C9D0013016F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		41F7F37329799E500013016F /* FeatureCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 			children = (
 				3B33B6B4240A78B300D675BC /* Main.storyboard */,
 				3B33B6B9240A78B600D675BC /* LaunchScreen.storyboard */,
+				41F7F37129799C9D0013016F /* AppView.swift */,
+				41F7F37329799E500013016F /* FeatureCarouselView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,10 +216,12 @@
 				3B856E0F2427884B000FA895 /* Metronome.swift in Sources */,
 				3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */,
 				3B18E3BF24504AB400E83F22 /* ContainerViewController.swift in Sources */,
+				41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */,
 				3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */,
 				3B65034D2430EA6C00B6F4A9 /* HelpViewController.swift in Sources */,
 				3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */,
 				3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */,
+				41F7F37229799C9D0013016F /* AppView.swift in Sources */,
 				3B33B6AF240A78B300D675BC /* AppDelegate.swift in Sources */,
 				3B00DAD8243CFE9A0068C2B9 /* Setup.swift in Sources */,
 				3B33B6B1240A78B300D675BC /* SceneDelegate.swift in Sources */,
