@@ -12,9 +12,21 @@ enum DefaultsKey: String {
     case feedbackEnable
 }
 
+protocol UserDefaultsAccessing {
+    func set(_ value: Any?, forKey defaultName: String)
+
+    func bool(forKey defaultName: String) -> Bool
+}
+
+extension UserDefaults: UserDefaultsAccessing {}
+
 struct FeedbackEnabledStorage {
-    let storage = UserDefaults.standard
+    let storage: UserDefaultsAccessing
     let key: DefaultsKey = .feedbackEnable
+
+    init(storage: UserDefaultsAccessing = UserDefaults.standard) {
+        self.storage = storage
+    }
 
     func save(value: Bool) {
         storage.set(value, forKey: key.rawValue)

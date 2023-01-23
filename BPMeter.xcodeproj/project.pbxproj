@@ -23,11 +23,23 @@
 		3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA08C41240C5AFF00BFDE41 /* Counter.swift */; };
 		3BBDA9EF2427C10100B75EE7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */; };
 		418F4E40297EDE89001A82F9 /* DefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E3F297EDE89001A82F9 /* DefaultsStorage.swift */; };
+		418F4E56297EE941001A82F9 /* DefaultsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E55297EE941001A82F9 /* DefaultsStorageTests.swift */; };
+		418F4E58297EE98E001A82F9 /* UserDefaultsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E57297EE98D001A82F9 /* UserDefaultsSpy.swift */; };
 		41F7F37229799C9D0013016F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37129799C9D0013016F /* AppView.swift */; };
 		41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37329799E500013016F /* FeatureCarouselView.swift */; };
 		41F7F3762979A8490013016F /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F3752979A8490013016F /* HelpView.swift */; };
 		41F7F3792979AA020013016F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F3782979AA020013016F /* BlurView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		418F4E4E297EE901001A82F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B33B6A3240A78B300D675BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B33B6AA240A78B300D675BC;
+			remoteInfo = BPMeter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3B00DAD7243CFE9A0068C2B9 /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
@@ -48,6 +60,9 @@
 		3BA08C41240C5AFF00BFDE41 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		3BBDA9EE2427C10100B75EE7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		418F4E3F297EDE89001A82F9 /* DefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsStorage.swift; sourceTree = "<group>"; };
+		418F4E4A297EE901001A82F9 /* BPMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BPMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		418F4E55297EE941001A82F9 /* DefaultsStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultsStorageTests.swift; path = ../../../../DefaultsStorageTests.swift; sourceTree = "<group>"; };
+		418F4E57297EE98D001A82F9 /* UserDefaultsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsSpy.swift; path = ../../../../UserDefaultsSpy.swift; sourceTree = "<group>"; };
 		41F7F37129799C9D0013016F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		41F7F37329799E500013016F /* FeatureCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCarouselView.swift; sourceTree = "<group>"; };
 		41F7F3752979A8490013016F /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -56,6 +71,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		3B33B6A8240A78B300D675BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		418F4E47297EE901001A82F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3B33B6AD240A78B300D675BC /* BPMeter */,
+				418F4E4B297EE901001A82F9 /* BPMeterTests */,
 				3B33B6AC240A78B300D675BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3B33B6AB240A78B300D675BC /* BPMeter.app */,
+				418F4E4A297EE901001A82F9 /* BPMeterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +179,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		418F4E4B297EE901001A82F9 /* BPMeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				418F4E54297EE921001A82F9 /* Helpers */,
+				418F4E53297EE911001A82F9 /* ModelTests */,
+			);
+			path = BPMeterTests;
+			sourceTree = "<group>";
+		};
+		418F4E53297EE911001A82F9 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				418F4E55297EE941001A82F9 /* DefaultsStorageTests.swift */,
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		418F4E54297EE921001A82F9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				418F4E57297EE98D001A82F9 /* UserDefaultsSpy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		41F7F3772979A9A70013016F /* UIHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,18 +234,41 @@
 			productReference = 3B33B6AB240A78B300D675BC /* BPMeter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		418F4E49297EE901001A82F9 /* BPMeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 418F4E50297EE901001A82F9 /* Build configuration list for PBXNativeTarget "BPMeterTests" */;
+			buildPhases = (
+				418F4E46297EE901001A82F9 /* Sources */,
+				418F4E47297EE901001A82F9 /* Frameworks */,
+				418F4E48297EE901001A82F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				418F4E4F297EE901001A82F9 /* PBXTargetDependency */,
+			);
+			name = BPMeterTests;
+			productName = BPMeterTests;
+			productReference = 418F4E4A297EE901001A82F9 /* BPMeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3B33B6A3240A78B300D675BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Jakub Majkowski";
 				TargetAttributes = {
 					3B33B6AA240A78B300D675BC = {
 						CreatedOnToolsVersion = 11.2.1;
+					};
+					418F4E49297EE901001A82F9 = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+						TestTargetID = 3B33B6AA240A78B300D675BC;
 					};
 				};
 			};
@@ -214,6 +286,7 @@
 			projectRoot = "";
 			targets = (
 				3B33B6AA240A78B300D675BC /* BPMeter */,
+				418F4E49297EE901001A82F9 /* BPMeterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -227,6 +300,13 @@
 				3B33B6BB240A78B600D675BC /* LaunchScreen.storyboard in Resources */,
 				3B33B6B8240A78B600D675BC /* Assets.xcassets in Resources */,
 				3B33B6B6240A78B300D675BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		418F4E48297EE901001A82F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +336,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		418F4E46297EE901001A82F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				418F4E56297EE941001A82F9 /* DefaultsStorageTests.swift in Sources */,
+				418F4E58297EE98E001A82F9 /* UserDefaultsSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		418F4E4F297EE901001A82F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B33B6AA240A78B300D675BC /* BPMeter */;
+			targetProxy = 418F4E4E297EE901001A82F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3B33B6B4240A78B300D675BC /* Main.storyboard */ = {
@@ -430,6 +527,61 @@
 			};
 			name = Release;
 		};
+		418F4E51297EE901001A82F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNR33FGX8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmmobile.BPMeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BPMeter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BPMeter";
+			};
+			name = Debug;
+		};
+		418F4E52297EE901001A82F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNR33FGX8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmmobile.BPMeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BPMeter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BPMeter";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -447,6 +599,15 @@
 			buildConfigurations = (
 				3B33B6C0240A78B600D675BC /* Debug */,
 				3B33B6C1240A78B600D675BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		418F4E50297EE901001A82F9 /* Build configuration list for PBXNativeTarget "BPMeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				418F4E51297EE901001A82F9 /* Debug */,
+				418F4E52297EE901001A82F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
