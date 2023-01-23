@@ -32,7 +32,7 @@ struct FeedbackEnabledStorage {
         storage.set(value, forKey: key.rawValue)
     }
 
-    func load() -> Bool? {
+    func load() -> Bool {
         storage.bool(forKey: key.rawValue)
     }
 }

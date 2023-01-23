@@ -10,18 +10,77 @@ import SwiftUI
 
 struct HelpView: View {
 
+    @State var isHapticFeedbackEnabled: Bool = false
+
     var body: some View {
         ZStack {
             BlurView()
-            Text("BPMeter")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            VStack(spacing: 20) { // TODO: Spacing
+                Text("BPMeter")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+
+                ForEach(FeaturePage.allCases, id: \.self) {
+                    FeatureExplanationView(feature: $0)
+                        .frame(maxWidth: .infinity)
+                }
+
+                Toggle(isOn: $isHapticFeedbackEnabled) {
+                    Text("Vibrations")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(30)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(Color(uiColor: .lightGray))
+                    .opacity(0.75)
+            )
+            .padding(.horizontal, 16)
+
         }
         .ignoresSafeArea()
-        .background(Color.indigo) // FIXME: Placeholder
+//        .background(Color.indigo) // FIXME: Placeholder
     }
 
+}
+
+private struct FeatureExplanationView: View {
+
+    let feature: FeaturePage
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("• \(feature.title):")
+                    .font(.headline)
+                Text(feature.explanation)
+                    .font(.subheadline)
+                    .padding(.leading, 20)
+            }
+            .foregroundColor(.white)
+
+            Spacer()
+        }
+    }
+}
+
+private extension FeaturePage { // TODO: Localize
+    var title: String {
+        switch self {
+        case .tapTempo: return "Tap Tempo Meter"
+        case .metronome: return "Metronome"
+        }
+    }
+
+    var explanation: String {
+        switch self {
+        case .tapTempo: return "Tap on the screen rhytmically to determine the tempo."
+        case .metronome: return "Swipe up/down with two fingers to set the desired tempo, and press the button on the screen to turn the metronome on/off."
+        }
+    }
 }
 
 struct HelpView_Previews: PreviewProvider {

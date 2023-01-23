@@ -121,7 +121,6 @@
 				3B33B6C2240A790E00D675BC /* Model */,
 				3B33B6C5240A794C00D675BC /* View */,
 				3B33B6C3240A791C00D675BC /* Controllers */,
-				418F4E3E297EDE66001A82F9 /* ViewModel */,
 				3B33B6C4240A793900D675BC /* Other */,
 			);
 			path = BPMeter;
@@ -170,13 +169,6 @@
 				41F7F3752979A8490013016F /* HelpView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		418F4E3E297EDE66001A82F9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		418F4E4B297EE901001A82F9 /* BPMeterTests */ = {
