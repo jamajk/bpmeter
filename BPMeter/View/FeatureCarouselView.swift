@@ -16,8 +16,8 @@ struct FeatureCarouselView: View {
 
     var body: some View {
         TabView(selection: $selection) {
-            ForEach(FeaturePage.allCases, id: \.self) { _ in
-                Color.green
+            ForEach(FeaturePage.allCases, id: \.self) { feature in
+                feature.view
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
@@ -43,6 +43,18 @@ struct FeatureCarouselView: View {
 enum FeaturePage: String, CaseIterable {
     case tapTempo
     case metronome
+}
+
+extension FeaturePage {
+
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .tapTempo: TapTempoView()
+        case .metronome: Color.green
+        }
+    }
+
 }
 
 //struct FeatureCarousel_Previews: PreviewProvider {
