@@ -19,7 +19,7 @@ struct HelpView: View {
                 .foregroundColor(.white)
         }
         .ignoresSafeArea()
-        .background(Color.green) // FIXME: Placeholder
+        .background(Color.indigo) // FIXME: Placeholder
     }
 
 }
