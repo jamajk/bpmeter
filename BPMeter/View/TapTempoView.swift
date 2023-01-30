@@ -10,10 +10,12 @@ import SwiftUI
 
 struct TapTempoView: View {
     var body: some View {
-        ZStack(alignment: .top) {
-            TempoLabelView(value: 000)
-                .padding(.top, 60)
-            Color.clear // for tappable space
+        TapMeasuringView(onTap: { print("TAP IN \($0)") }) {
+            ZStack(alignment: .top) {
+                Color.blue // for tappable space
+                TempoLabelView(value: 000)
+                    .padding(.top, 60)
+            }
         }
     }
 }

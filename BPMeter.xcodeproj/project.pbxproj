@@ -27,6 +27,7 @@
 		418F4E58297EE98E001A82F9 /* UserDefaultsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E57297EE98D001A82F9 /* UserDefaultsSpy.swift */; };
 		418F4E5C297EF9E4001A82F9 /* TapTempoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E5B297EF9E4001A82F9 /* TapTempoView.swift */; };
 		418F4E5E297EFA34001A82F9 /* TempoLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F4E5D297EFA34001A82F9 /* TempoLabelView.swift */; };
+		41A5857429883DCB00DCF843 /* TapMeasuringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5857329883DCB00DCF843 /* TapMeasuringView.swift */; };
 		41F7F37229799C9D0013016F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37129799C9D0013016F /* AppView.swift */; };
 		41F7F37429799E500013016F /* FeatureCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F37329799E500013016F /* FeatureCarouselView.swift */; };
 		41F7F3762979A8490013016F /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F7F3752979A8490013016F /* HelpView.swift */; };
@@ -67,6 +68,7 @@
 		418F4E57297EE98D001A82F9 /* UserDefaultsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsSpy.swift; path = ../../../../UserDefaultsSpy.swift; sourceTree = "<group>"; };
 		418F4E5B297EF9E4001A82F9 /* TapTempoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTempoView.swift; sourceTree = "<group>"; };
 		418F4E5D297EFA34001A82F9 /* TempoLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoLabelView.swift; sourceTree = "<group>"; };
+		41A5857329883DCB00DCF843 /* TapMeasuringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapMeasuringView.swift; sourceTree = "<group>"; };
 		41F7F37129799C9D0013016F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		41F7F37329799E500013016F /* FeatureCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCarouselView.swift; sourceTree = "<group>"; };
 		41F7F3752979A8490013016F /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				3B00DAD9243D01BD0068C2B9 /* Animator.swift */,
 				41F7F3782979AA020013016F /* BlurView.swift */,
 				418F4E5D297EFA34001A82F9 /* TempoLabelView.swift */,
+				41A5857329883DCB00DCF843 /* TapMeasuringView.swift */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				418F4E5E297EFA34001A82F9 /* TempoLabelView.swift in Sources */,
 				3B856E112427A0E0000FA895 /* MetronomeViewController.swift in Sources */,
 				3B65034D2430EA6C00B6F4A9 /* HelpViewController.swift in Sources */,
+				41A5857429883DCB00DCF843 /* TapMeasuringView.swift in Sources */,
 				418F4E5C297EF9E4001A82F9 /* TapTempoView.swift in Sources */,
 				3BA08C42240C5AFF00BFDE41 /* Counter.swift in Sources */,
 				3B33B6B3240A78B300D675BC /* MeterViewController.swift in Sources */,
