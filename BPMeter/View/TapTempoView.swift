@@ -19,3 +19,7 @@ struct TapTempoView: View {
         }
     }
 }
+
+class TapTempoViewModel: ObservableObject {
+    
+}

@@ -23,7 +23,7 @@ class Counter {
         timerStart = timerFinish
     }
     
-    func Tap() {
+    func onTap() {
         tapCount += 1
         
         if tapCount == 1 {
@@ -47,14 +47,14 @@ class Counter {
                     print(timePassed[i - 1])
                 }
             } else {
-                Reset()
+                reset()
             }
             
             timerStart = timerFinish
         }
     }
     
-    func Calculate() -> Double {
+    func calculate() -> Double {
         var result: Double = 0
         if timePassed.count > 0 {
             var avgTime: Double = 0.0
@@ -67,7 +67,7 @@ class Counter {
         return result.rounded()
     }
     
-    func Reset() {
+    func reset() {
         timePassed.removeAll()
         tapCount = 0
     }

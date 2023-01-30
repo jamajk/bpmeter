@@ -18,8 +18,8 @@ class MeterViewController: UIViewController {
     @IBOutlet weak var bpmLabel: UILabel!
     
     @objc func mainTap(sender: UITapGestureRecognizer) {
-        counter.Tap()
-        bpmLabel.text = String(Int(counter.Calculate()))
+        counter.onTap()
+        bpmLabel.text = String(Int(counter.calculate()))
         Animator.animateBackground(ofView: view)
         AudioServicesPlaySystemSound(systemSoundID)
         if Setup.vibrationsEnabled {
@@ -37,7 +37,7 @@ class MeterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         bpmLabel.text = "Start tapping"
-        counter.Reset()
+        counter.reset()
     }
     
 }

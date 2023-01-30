@@ -12,9 +12,15 @@ struct TempoLabelView: View {
     let value: Int
 
     var body: some View {
-        Text(String(value))
-            .font(.system(size: 45))
-            .fontWeight(.heavy)
-            .foregroundColor(.white)
+        VStack(spacing: 4) {
+            Text(String(value))
+                .font(.system(size: 45))
+                .fontWeight(.heavy)
+                .foregroundColor(.white)
+            Text("Tempo")
+                .font(.system(size: 14))
+                .fontWeight(.medium)
+                .foregroundColor(Color(uiColor: .lightGray))
+        }
     }
 }
