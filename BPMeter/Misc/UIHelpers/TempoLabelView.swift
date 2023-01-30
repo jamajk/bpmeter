@@ -22,5 +22,6 @@ struct TempoLabelView: View {
                 .fontWeight(.medium)
                 .foregroundColor(Color(uiColor: .lightGray))
         }
+        .animation(.linear(duration: 0.2), value: value)
     }
 }

@@ -9,17 +9,21 @@
 import SwiftUI
 
 struct TapTempoView: View {
+
+    @StateObject var counter = Counter()
+
     var body: some View {
-        TapMeasuringView(onTap: { print("TAP IN \($0)") }) {
+        TapMeasuringView(
+            onTap: {
+                print("TAP IN \($0)")
+                counter.onTap()
+            }
+        ) {
             ZStack(alignment: .top) {
                 Color.blue // for tappable space
-                TempoLabelView(value: 000)
+                TempoLabelView(value: Int(counter.tempo))
                     .padding(.top, 60)
             }
         }
     }
-}
-
-class TapTempoViewModel: ObservableObject {
-    
 }

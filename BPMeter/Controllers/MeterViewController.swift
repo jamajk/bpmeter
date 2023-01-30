@@ -19,7 +19,7 @@ class MeterViewController: UIViewController {
     
     @objc func mainTap(sender: UITapGestureRecognizer) {
         counter.onTap()
-        bpmLabel.text = String(Int(counter.calculate()))
+        bpmLabel.text = String(Int(counter.calculateTempo()))
         Animator.animateBackground(ofView: view)
         AudioServicesPlaySystemSound(systemSoundID)
         if Setup.vibrationsEnabled {

@@ -8,15 +8,17 @@
 
 import Foundation
 
-class Counter {
+class Counter: ObservableObject {
     
-    var tapCount = 0
-    var timePassed: [Double] = []
+    private var tapCount = 0
+    private var timePassed: [Double] = []
     
-    let maxCount = 6
+    private let maxCount = 6
     
-    var timerStart: DispatchTime
-    var timerFinish: DispatchTime
+    private var timerStart: DispatchTime
+    private var timerFinish: DispatchTime
+
+    @Published public var tempo: Double = 0
     
     init() {
         timerFinish = DispatchTime.now()
@@ -30,7 +32,6 @@ class Counter {
             timerStart = DispatchTime.now()
         }
         else {
-            
             timerFinish = DispatchTime.now()
             let nanoTime = timerFinish.uptimeNanoseconds - timerStart.uptimeNanoseconds
             let secTime = Double(nanoTime) / 1_000_000_000
@@ -41,20 +42,17 @@ class Counter {
                 if timePassed.count > maxCount {
                     timePassed.remove(at: 0)
                 }
-                print(timePassed.count)
-                
-                for i in 1...timePassed.count {
-                    print(timePassed[i - 1])
-                }
             } else {
                 reset()
             }
             
             timerStart = timerFinish
         }
+
+        self.tempo = calculateTempo()
     }
     
-    func calculate() -> Double {
+    func calculateTempo() -> Double {
         var result: Double = 0
         if timePassed.count > 0 {
             var avgTime: Double = 0.0
@@ -63,7 +61,6 @@ class Counter {
             }
            result = 60.0 / avgTime
         }
-        print(result)
         return result.rounded()
     }
     
