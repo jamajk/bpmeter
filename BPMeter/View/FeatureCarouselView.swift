@@ -54,7 +54,7 @@ extension FeaturePage {
     var view: some View {
         switch self {
         case .tapTempo: TapTempoView()
-        case .metronome: Color.green
+        case .metronome: MetronomeView()
         }
     }
 
