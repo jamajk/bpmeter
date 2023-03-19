@@ -10,6 +10,10 @@ import SwiftUI
 
 struct TapMeasuringView<Content: View>: View {
 
+    @Environment(\.feedbackStorage) var feedbackStorage
+
+    private let generator = UIImpactFeedbackGenerator(style: .light)
+
     let onTap: (CGPoint?) -> Void
     let content: () -> Content
 
@@ -19,6 +23,9 @@ struct TapMeasuringView<Content: View>: View {
                 SpatialTapGesture(count: 1, coordinateSpace: .global)
                     .onEnded { value in
                         onTap(value.location)
+                        if feedbackStorage.load() {
+                            generator.impactOccurred()
+                        }
                     }
             )
         } else {

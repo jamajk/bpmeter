@@ -11,10 +11,6 @@ import SwiftUI
 
 class Counter: ObservableObject {
 
-    @Environment(\.feedbackStorage) var feedbackStorage
-
-    private let generator = UIImpactFeedbackGenerator(style: .light) // FIXME: Move this out of here
-    
     private var tapCount = 0
     private var timePassed: [Double] = []
     
@@ -52,10 +48,6 @@ class Counter: ObservableObject {
             }
             
             timerStart = timerFinish
-        }
-
-        if feedbackStorage.load() {
-            generator.impactOccurred()
         }
 
         self.tempo = calculateTempo()
