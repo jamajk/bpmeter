@@ -32,7 +32,10 @@ struct FeatureCarouselView: View {
                 Image(systemName: "questionmark.circle")
                     .font(.system(size: 28))
                     .foregroundColor(.gray)
+                    .padding(24)
             }
+//            .frame(width: 44, height: 44)
+            .background(Color.clear)
             .buttonStyle(.plain)
             .padding(.bottom, 64)
 

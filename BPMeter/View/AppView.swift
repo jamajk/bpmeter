@@ -14,9 +14,18 @@ struct AppView: View {
 
     var body: some View {
         FeatureCarouselView(isShowingHelp: $isShowingHelp)
-            .sheet(isPresented: $isShowingHelp) {
-                HelpView()
-            }
+            .overlay(
+                helpOverlay
+                    .animation(.easeInOut(duration: 0.3), value: isShowingHelp)
+                    .transition(.opacity)
+            )
+    }
+
+    @ViewBuilder
+    private var helpOverlay: some View {
+        if isShowingHelp {
+            HelpView().onTapGesture { isShowingHelp = false }
+        }
     }
 
 }
