@@ -10,8 +10,6 @@ import SwiftUI
 
 struct AppView: View {
 
-    let storage = FeedbackEnabledStorage()
-
     @State var isShowingHelp: Bool = false
 
     var body: some View {

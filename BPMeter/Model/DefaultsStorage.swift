@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum DefaultsKey: String {
     case feedbackEnable
@@ -34,5 +35,16 @@ struct FeedbackEnabledStorage {
 
     func load() -> Bool {
         storage.bool(forKey: key.rawValue)
+    }
+}
+
+private struct FeedbackEnabledStorageKey: EnvironmentKey {
+    static let defaultValue: FeedbackEnabledStorage = FeedbackEnabledStorage()
+}
+
+extension EnvironmentValues {
+    var feedbackStorage: FeedbackEnabledStorage {
+        get { self[FeedbackEnabledStorageKey.self] }
+        set { self[FeedbackEnabledStorageKey.self] = newValue }
     }
 }

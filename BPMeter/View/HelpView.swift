@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HelpView: View {
 
-    @State var isHapticFeedbackEnabled: Bool = false
+    @Environment(\.feedbackStorage) var feedbackStorage
 
     var body: some View {
         ZStack {
@@ -26,7 +26,7 @@ struct HelpView: View {
                         .frame(maxWidth: .infinity)
                 }
 
-                Toggle(isOn: $isHapticFeedbackEnabled) {
+                Toggle(isOn: isHapticFeedbackEnabled) {
                     Text("Vibrations")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -43,6 +43,13 @@ struct HelpView: View {
         }
         .ignoresSafeArea()
 //        .background(Color.indigo) // FIXME: Placeholder
+    }
+
+    private var isHapticFeedbackEnabled: Binding<Bool> {
+        .init(
+            get: { feedbackStorage.load() },
+            set: { feedbackStorage.save(value: $0) }
+        )
     }
 
 }
