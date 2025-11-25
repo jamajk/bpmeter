@@ -11,7 +11,7 @@ import SwiftUI
 struct BPMeterApp: App {
     var body: some Scene {
         WindowGroup {
-            TapTempoView() // TODO: Change
+            FeatureCarouselView()
         }
     }
 }
