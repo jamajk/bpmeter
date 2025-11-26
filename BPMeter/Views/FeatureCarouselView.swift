@@ -32,18 +32,20 @@ struct FeatureCarouselView: View {
     private var helpButtonOverlay: some View {
         VStack {
             Spacer()
-            Button(action: { isShowingHelp.toggle() }) {
-                Image(systemName: "questionmark.circle")
-                    .font(.system(size: 28))
-                    .foregroundColor(.gray)
-                    .padding(24)
-            }
-//            .frame(width: 44, height: 44)
-            .background(Color.clear)
-            .buttonStyle(.plain)
-            .padding(.bottom, 64)
-
+            helpButton
+                .padding(.bottom, 64)
         }
+    }
+
+    private var helpButton: some View {
+        Button(action: { isShowingHelp.toggle() }) {
+            Image(systemName: "questionmark.circle")
+                .font(.system(size: 28))
+                .foregroundColor(.gray)
+                .padding(24)
+        }
+//            .frame(width: 44, height: 44)
+        .buttonStyle(.plain)
     }
 }
 
