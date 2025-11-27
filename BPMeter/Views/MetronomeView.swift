@@ -15,28 +15,44 @@ struct MetronomeView: View {
             Text("Metronome")
                 .font(.largeTitle)
 
-            HStack {
-                Text("BPM: \(viewModel.bpm)")
-                Slider(value: Binding(
-                    get: { Double(viewModel.bpm) },
-                    set: { viewModel.bpm = Int($0) }
-                ), in: 30...240)
-            }
+//            HStack {
+//                Text("BPM: \(viewModel.bpm)")
+//                Slider(value: Binding(
+//                    get: { Double(viewModel.bpm) },
+//                    set: { viewModel.onBPMChanged(to: <#T##Int#>) }
+//                ), in: 30...240)
+//            }
+//
+//            HStack {
+//                Text("Beats: \(viewModel.beatsPerMeasure)")
+//                Stepper("", value: $viewModel.beatsPerMeasure, in: 1...12)
+//            }
 
-            HStack {
-                Text("Beats: \(viewModel.beatsPerMeasure)")
-                Stepper("", value: $viewModel.beatsPerMeasure, in: 1...12)
-            }
-
-            Button(viewModel.isRunning ? "Stop" : "Start") {
-                viewModel.onTapStartStop()
+            Button(viewModel.buttonState.title) {
+                viewModel.onStartStopTapped()
             }
             .padding()
+            .background(viewModel.buttonState.backgroundColor)
             .frame(maxWidth: .infinity)
-            .background(viewModel.isRunning ? .red : .green)
             .foregroundColor(.white)
             .cornerRadius(12)
         }
         .padding()
+    }
+}
+
+extension StartButtonState {
+    var title: String {
+        switch self {
+        case .start: "Start"
+        case .stop: "Stop"
+        }
+    }
+
+    var backgroundColor: Color {
+        switch self {
+        case .start: .green
+        case .stop: .red
+        }
     }
 }
