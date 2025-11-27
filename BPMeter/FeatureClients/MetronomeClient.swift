@@ -1,27 +1,19 @@
 //
-//  MetronomeViewModel.swift
+//  MetronomeClient.swift
 //  BPMeter
 //
-//  Created by Jakub Majkowski on 26/11/2025.
+//  Created by Jakub Majkowski on 27/11/2025.
 //
 
 import Foundation
 import Combine
-import AVFoundation
 
 enum BeatType {
     case accented
     case normal
 }
 
-@Observable
-class MetronomeViewModel {
-    private var timer: AnyCancellable?
-    private var currentBeat: Int = 1
-
-    let tick = PassthroughSubject<BeatType, Never>()
-    var isRunning: Bool = false
-
+class MetronomeClient {
     var bpm: Int {
         didSet { restartTimerIfRunning() }
     }
@@ -30,22 +22,33 @@ class MetronomeViewModel {
         didSet { currentBeat = 1; restartTimerIfRunning() }
     }
 
+    private(set) var isRunning: AnyPublisher<Bool, Never>
+    private(set) var tick: AnyPublisher<BeatType, Never>
+
     init(bpm: Int = 120, beatsPerMeasure: Int = 4) {
         self.bpm = bpm
         self.beatsPerMeasure = beatsPerMeasure
+
+        isRunning = isRunningSubject.eraseToAnyPublisher()
+        tick = tickSubject.eraseToAnyPublisher()
     }
 
-    // MARK: - Public API
+    private let tickSubject = PassthroughSubject<BeatType, Never>()
+    private let isRunningSubject = CurrentValueSubject<Bool, Never>(false)
+    private var timer: AnyCancellable?
+    private var currentBeat: Int = 1
+
+    // MARK: - Internal functions
 
     func onTapStartStop() {
-        if isRunning {
+        if isRunningSubject.value {
             timer?.cancel()
             timer = nil
-            isRunning = false
+            isRunningSubject.send(false)
             currentBeat = 1
         } else {
             guard bpm > 0 else { return }
-            isRunning = true
+            isRunningSubject.send(true)
             startTimer()
         }
     }
@@ -64,7 +67,7 @@ class MetronomeViewModel {
     }
 
     private func restartTimerIfRunning() {
-        if isRunning {
+        if isRunningSubject.value {
             timer?.cancel()
             startTimer()
         }
@@ -72,8 +75,7 @@ class MetronomeViewModel {
 
     private func handleTick() {
         let isAccent = currentBeat == 1
-        tick.send(isAccent ? .accented : .normal)
-//        print(isAccent ? "Bim" : "Bom")
+        tickSubject.send(isAccent ? .accented : .normal)
         currentBeat += 1
         if currentBeat > beatsPerMeasure {
             currentBeat = 1

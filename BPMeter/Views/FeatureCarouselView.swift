@@ -26,6 +26,9 @@ struct FeatureCarouselView: View {
         .overlay(helpButtonOverlay)
         .sheet(isPresented: $isShowingHelp) {
             Text("Help xd")
+                .toolbar {
+                    Button("Close", action: { isShowingHelp = false })
+                }
         }
     }
 
