@@ -21,10 +21,10 @@ struct TapTempoView: View {
     }
 
     private var labelText: String {
-        guard viewModel.roundedBPM != .zero else {
+        guard viewModel.bpmValue != .zero else {
             return "Start tapping" // TODO: Localize
         }
-        return String(viewModel.roundedBPM)
+        return String(viewModel.bpmValue)
     }
 }
 
