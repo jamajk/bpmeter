@@ -68,6 +68,7 @@ class MetronomeViewModel {
 
     private func onMetronomeTick(type: BeatType) {
         // coś tam animacja
+        // play sound
         print(type == .accented ? "Bim" : "Bom") // TODO: Finish
     }
 }
