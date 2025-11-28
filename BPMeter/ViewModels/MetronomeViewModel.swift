@@ -82,8 +82,17 @@ class MetronomeViewModel {
     }
 
     private func onMetronomeTick(type: BeatType) {
-        // coś tam animacja
+        handleTickBackgroundColorChange()
         // play sound
         print(type == .accented ? "Bim" : "Bom") // TODO: Finish
+    }
+
+    @MainActor
+    private func handleTickBackgroundColorChange() {
+        Task {
+            background = .tickActive
+            try await Task.sleep(for: .milliseconds(100))
+            background = .normal
+        }
     }
 }
