@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct TapTempoView: View {
+    @State private var viewModel: TapTempoViewModel
 
-    @State private var viewModel = TapTempoViewModel()
+    init(viewModel: TapTempoViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ZStack {
@@ -28,6 +31,6 @@ struct TapTempoView: View {
     }
 }
 
-#Preview {
-    TapTempoView()
-}
+//#Preview {
+//    TapTempoView() // TODO: need an audio player mock
+//}

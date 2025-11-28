@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct MetronomeView: View {
-    @State private var viewModel = MetronomeViewModel()
+    @State private var viewModel: MetronomeViewModel
+
+    init(viewModel: MetronomeViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ZStack {

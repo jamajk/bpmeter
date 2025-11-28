@@ -15,6 +15,11 @@ enum BeatType {
 
 @Observable
 class MetronomeClient {
+    struct Constants {
+        static let startingBPM: Int = 120
+        static let startingBeatsPerMeasure: Int = 4
+    }
+
     var bpm: Int {
         didSet { restartTimerIfRunning() }
     }
@@ -28,7 +33,10 @@ class MetronomeClient {
     @ObservationIgnored
     private(set) var tick: AnyPublisher<BeatType, Never>
 
-    init(bpm: Int = 120, beatsPerMeasure: Int = 4) {
+    init(
+        bpm: Int = Constants.startingBPM,
+        beatsPerMeasure: Int = Constants.startingBeatsPerMeasure
+    ) {
         self.bpm = bpm
         self.beatsPerMeasure = beatsPerMeasure
 
