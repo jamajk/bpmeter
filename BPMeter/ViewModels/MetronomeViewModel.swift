@@ -10,13 +10,20 @@ import Combine
 import AVFoundation
 
 enum StartButtonState {
-    case stop
     case start
+    case stop
+}
+
+enum BackgroundState {
+    case normal
+    case tickActive
 }
 
 @Observable
 class MetronomeViewModel {
+    @ObservationIgnored
     private let client: MetronomeClient
+    @ObservationIgnored
     private var subscribers = Set<AnyCancellable>()
 
     struct Constants {
@@ -25,7 +32,15 @@ class MetronomeViewModel {
     }
 
     private(set) var buttonState: StartButtonState = .start
-    private(set) var background: StartButtonState = .start
+    private(set) var background: BackgroundState = .normal
+
+    var currentBPM: Int {
+        client.bpm
+    }
+
+    var currentBeatsPerMeasure: Int {
+        client.beatsPerMeasure
+    }
 
     init() {
         client = MetronomeClient(
