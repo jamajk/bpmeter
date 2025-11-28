@@ -11,6 +11,15 @@ struct MetronomeView: View {
     @State private var viewModel = MetronomeViewModel()
 
     var body: some View {
+        ZStack {
+            viewModel.background.backgroundColor
+
+            metronomeContent
+        }
+        .animation(.easeOut(duration: 0.1), value: viewModel.background)
+    }
+
+    private var metronomeContent: some View {
         VStack(spacing: 24) {
             Text("Metronome")
                 .font(.largeTitle)
@@ -51,7 +60,7 @@ struct MetronomeView: View {
     }
 }
 
-extension StartButtonState {
+private extension StartButtonState {
     var title: String {
         switch self {
         case .start: "Start"
@@ -63,6 +72,15 @@ extension StartButtonState {
         switch self {
         case .start: .green
         case .stop: .red
+        }
+    }
+}
+
+private extension BackgroundState {
+    var backgroundColor: Color {
+        switch self {
+        case .normal: .blue
+        case .tickActive: .green
         }
     }
 }
