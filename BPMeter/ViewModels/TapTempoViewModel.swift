@@ -10,10 +10,19 @@ import SwiftUI
 @Observable
 class TapTempoViewModel {
     @ObservationIgnored
-    private let client = TapTempoClient()
-
+    private let client: TapTempoClient
+    @ObservationIgnored
+    private let audioPlayer: AudioPlayerClient
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
+
+    init(
+        client: TapTempoClient,
+        audioPlayer: AudioPlayerClient
+    ) {
+        self.client = client
+        self.audioPlayer = audioPlayer
+    }
 
     var bpmValue: Int {
         client.roundedBPM
@@ -22,6 +31,7 @@ class TapTempoViewModel {
     func onTap() {
         removeResetTaskIfNeeded()
         client.onTapReceived()
+        audioPlayer.playTickingSound(accented: false)
         setupResetTask()
     }
 

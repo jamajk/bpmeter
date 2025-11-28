@@ -24,12 +24,9 @@ class MetronomeViewModel {
     @ObservationIgnored
     private let client: MetronomeClient
     @ObservationIgnored
+    private let audioPlayer: AudioPlayerClient
+    @ObservationIgnored
     private var subscribers = Set<AnyCancellable>()
-
-    struct Constants {
-        static let startingBPM: Int = 120
-        static let startingBeatsPerMeasure: Int = 4
-    }
 
     private(set) var buttonState: StartButtonState = .start
     private(set) var background: BackgroundState = .normal
@@ -42,11 +39,12 @@ class MetronomeViewModel {
         client.beatsPerMeasure
     }
 
-    init() {
-        client = MetronomeClient(
-            bpm: Constants.startingBPM,
-            beatsPerMeasure: Constants.startingBeatsPerMeasure
-        )
+    init(
+        client: MetronomeClient,
+        audioPlayer: AudioPlayerClient
+    ) {
+        self.client = client
+        self.audioPlayer = audioPlayer
 
         client.isRunning
             .receive(on: RunLoop.main)
@@ -83,8 +81,7 @@ class MetronomeViewModel {
 
     private func onMetronomeTick(type: BeatType) {
         handleTickBackgroundColorChange()
-        // play sound
-        print(type == .accented ? "Bim" : "Bom") // TODO: Finish
+        audioPlayer.playTickingSound(accented: type == .accented) // TODO: Fix the sounds so they don't have a delay
     }
 
     @MainActor

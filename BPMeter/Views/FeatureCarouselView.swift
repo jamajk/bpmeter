@@ -10,14 +10,26 @@ import SwiftUI
 struct FeatureCarouselView: View {
     @State var isShowingHelp: Bool = false
 
+    private let audioPlayer = AudioPlayerClient() // separation of concerns is calling... maybe split initing viewmodels to viewmodel
+
     var body: some View {
         TabView {
             Tab("Tap Tempo", systemImage: "tray.and.arrow.down.fill") {
-                TapTempoView().ignoresSafeArea()
+                TapTempoView(
+                    viewModel: TapTempoViewModel(
+                        client: TapTempoClient(),
+                        audioPlayer: audioPlayer
+                    )
+                ).ignoresSafeArea()
             }
 
             Tab("Metronome", systemImage: "tray.and.arrow.down.fill") {
-                MetronomeView().ignoresSafeArea()
+                MetronomeView(
+                    viewModel: MetronomeViewModel(
+                        client: MetronomeClient(),
+                        audioPlayer: audioPlayer
+                    )
+                ).ignoresSafeArea()
             }
         }
         .ignoresSafeArea()
