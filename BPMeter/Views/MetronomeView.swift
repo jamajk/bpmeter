@@ -15,18 +15,28 @@ struct MetronomeView: View {
             Text("Metronome")
                 .font(.largeTitle)
 
-//            HStack {
-//                Text("BPM: \(viewModel.bpm)")
-//                Slider(value: Binding(
-//                    get: { Double(viewModel.bpm) },
-//                    set: { viewModel.onBPMChanged(to: <#T##Int#>) }
-//                ), in: 30...240)
-//            }
-//
-//            HStack {
-//                Text("Beats: \(viewModel.beatsPerMeasure)")
-//                Stepper("", value: $viewModel.beatsPerMeasure, in: 1...12)
-//            }
+            HStack {
+                Text("BPM: \(viewModel.currentBPM)")
+                Slider(
+                    value: Binding(
+                        get: { Double(viewModel.currentBPM) },
+                        set: { viewModel.onBPMChanged(to: Int($0)) }
+                    ),
+                    in: 30...240
+                )
+            }
+
+            HStack {
+                Text("Beats: \(viewModel.currentBeatsPerMeasure)")
+                Stepper(
+                    "",
+                    value: Binding(
+                        get: { viewModel.currentBeatsPerMeasure },
+                        set: { viewModel.onBeatsPerMeasureChanged(to: $0) }
+                    ),
+                    in: 1...12
+                )
+            }
 
             Button(viewModel.buttonState.title) {
                 viewModel.onStartStopTapped()

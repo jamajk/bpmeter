@@ -13,6 +13,7 @@ enum BeatType {
     case normal
 }
 
+@Observable
 class MetronomeClient {
     var bpm: Int {
         didSet { restartTimerIfRunning() }
@@ -22,7 +23,9 @@ class MetronomeClient {
         didSet { currentBeat = 1; restartTimerIfRunning() }
     }
 
+    @ObservationIgnored
     private(set) var isRunning: AnyPublisher<Bool, Never>
+    @ObservationIgnored
     private(set) var tick: AnyPublisher<BeatType, Never>
 
     init(bpm: Int = 120, beatsPerMeasure: Int = 4) {
