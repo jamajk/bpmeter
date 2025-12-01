@@ -28,8 +28,11 @@ class MetronomeViewModel {
     @ObservationIgnored
     private var subscribers = Set<AnyCancellable>()
 
-    private(set) var buttonState: StartButtonState = .start
     private(set) var background: BackgroundState = .normal
+
+    var buttonState: StartButtonState {
+        client.isRunning ? .stop : .start
+    }
 
     var currentBPM: Int {
         client.bpm
@@ -46,14 +49,6 @@ class MetronomeViewModel {
         self.client = client
         self.audioPlayer = audioPlayer
 
-        client.isRunning
-            .receive(on: RunLoop.main)
-            .sink { [weak self] isRunning in
-                guard let self else { return }
-                self.updateButtonState(isMetronomeRunning: isRunning)
-            }
-            .store(in: &subscribers)
-
         client.tick
             .receive(on: RunLoop.main)
             .sink { [weak self] beatType in
@@ -67,6 +62,12 @@ class MetronomeViewModel {
         client.onTapStartStop()
     }
 
+    func stopPlaybackIfNeeded() {
+        if client.isRunning {
+            client.stopIfRunning()
+        }
+    }
+
     func onBPMChanged(to newValue: Int) {
         client.bpm = newValue
     }
@@ -75,13 +76,9 @@ class MetronomeViewModel {
         client.beatsPerMeasure = newValue
     }
 
-    private func updateButtonState(isMetronomeRunning: Bool) {
-        buttonState = isMetronomeRunning ? .stop : .start
-    }
-
     private func onMetronomeTick(type: BeatType) {
         handleTickBackgroundColorChange()
-        audioPlayer.playTickingSound(accented: type == .accented) // TODO: Fix the sounds so they don't have a delay
+        audioPlayer.playTickingSound(accented: type == .accented)
     }
 
     @MainActor

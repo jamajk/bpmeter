@@ -28,8 +28,8 @@ class MetronomeClient {
         didSet { currentBeat = 1; restartTimerIfRunning() }
     }
 
-    @ObservationIgnored
-    private(set) var isRunning: AnyPublisher<Bool, Never>
+    private(set) var isRunning: Bool = false
+
     @ObservationIgnored
     private(set) var tick: AnyPublisher<BeatType, Never>
 
@@ -40,27 +40,27 @@ class MetronomeClient {
         self.bpm = bpm
         self.beatsPerMeasure = beatsPerMeasure
 
-        isRunning = isRunningSubject.eraseToAnyPublisher()
         tick = tickSubject.eraseToAnyPublisher()
     }
 
     private let tickSubject = PassthroughSubject<BeatType, Never>()
-    private let isRunningSubject = CurrentValueSubject<Bool, Never>(false)
     private var timer: AnyCancellable?
     private var currentBeat: Int = 1
 
     // MARK: - Internal functions
 
     func onTapStartStop() {
-        if isRunningSubject.value {
-            timer?.cancel()
-            timer = nil
-            isRunningSubject.send(false)
-            currentBeat = 1
+        if isRunning {
+            stopTimer()
         } else {
             guard bpm > 0 else { return }
-            isRunningSubject.send(true)
             startTimer()
+        }
+    }
+
+    func stopIfRunning() {
+        if isRunning {
+            stopTimer()
         }
     }
 
@@ -75,10 +75,18 @@ class MetronomeClient {
             .sink { [weak self] _ in
                 self?.handleTick()
             }
+        isRunning = true
+    }
+
+    private func stopTimer() {
+        isRunning = false
+        timer?.cancel()
+        timer = nil
+        currentBeat = 1
     }
 
     private func restartTimerIfRunning() {
-        if isRunningSubject.value {
+        if isRunning {
             timer?.cancel()
             startTimer()
         }
