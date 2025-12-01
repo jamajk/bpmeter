@@ -36,10 +36,9 @@ struct FeatureCarouselView: View {
         .tabViewStyle(.automatic)
         .overlay(helpButtonOverlay)
         .sheet(isPresented: $isShowingHelp) {
-            Text("Help xd")
-                .toolbar {
-                    Button("Close", action: { isShowingHelp = false })
-                }
+            HelpView {
+                isShowingHelp = false
+            }
         }
     }
 

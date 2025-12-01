@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import SwiftUIRippleEffect
 
 struct TapTempoView: View {
     @State private var viewModel: TapTempoViewModel
+    @State private var bubbleXPosition: CGFloat = 350
     @State private var bubbleYPosition: CGFloat = 600
+
+    @State private var rippleOrigin: CGPoint = .zero
+    @State private var rippleTrigger: Bool = false
 
     init(viewModel: TapTempoViewModel) {
         self.viewModel = viewModel
@@ -20,11 +25,33 @@ struct TapTempoView: View {
             Rectangle()
                 .fill(viewModel.background.backgroundColor.gradient)
                 .edgesIgnoringSafeArea(.all)
+                .background(
+                    GeometryReader { reader in
+                        Color.clear
+                            .onAppear { viewModel.updateViewportSize(reader.size) }
+                            .onChange(of: reader.size) { _, newSize in
+                                viewModel.updateViewportSize(newSize)
+                            }
+                    }
+                )
+                .rippleEffect(
+                    at: rippleOrigin,
+                    trigger: rippleTrigger,
+                    configuration: .init(
+                        duration: 1.5,
+                        amplitude: 30,
+                        frequency: 12,
+                        decay: 12,
+                        speed: 1500
+                    )
+                )
 
             Circle()
                 .fill(Color.red)
                 .frame(width: 120)
-                .position(y: bubbleYPosition)
+                .position(x: bubbleXPosition, y: bubbleYPosition)
+                .animation(.linear(duration: 8), value: bubbleXPosition)
+                .animation(.linear(duration: 8), value: bubbleYPosition)
 
             Rectangle()
                 .fill(.ultraThinMaterial)
@@ -33,17 +60,16 @@ struct TapTempoView: View {
             content
         }
         .animation(.easeOut(duration: 0.1), value: viewModel.background)
-        .onTapGesture { origin in
-            viewModel.onTap()
-        }
-        .onLongPressGesture(minimumDuration: 0) {
-            viewModel.onTap()
-        }
-        .onAppear {
-            withAnimation(.linear(duration: 7)) {
-                bubbleYPosition = 0
-            }
-        }
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0)
+                .onChanged { gesture in
+                    guard gesture.velocity == .zero else { return }
+                    rippleOrigin = gesture.location
+                    rippleTrigger.toggle()
+                    viewModel.onTap()
+                }
+        )
+        .onAppear { viewModel.onAppear() }
     }
 
     private var content: some View {
