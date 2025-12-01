@@ -10,8 +10,6 @@ import SwiftUIRippleEffect
 
 struct TapTempoView: View {
     @State private var viewModel: TapTempoViewModel
-    @State private var bubbleXPosition: CGFloat = 350
-    @State private var bubbleYPosition: CGFloat = 600
 
     @State private var rippleOrigin: CGPoint = .zero
     @State private var rippleTrigger: Bool = false
@@ -49,9 +47,7 @@ struct TapTempoView: View {
             Circle()
                 .fill(Color.red)
                 .frame(width: 120)
-                .position(x: bubbleXPosition, y: bubbleYPosition)
-                .animation(.linear(duration: 8), value: bubbleXPosition)
-                .animation(.linear(duration: 8), value: bubbleYPosition)
+                .position(x: viewModel.bubbleXPosition, y: viewModel.bubbleYPosition)
 
             Rectangle()
                 .fill(.ultraThinMaterial)
@@ -70,6 +66,7 @@ struct TapTempoView: View {
                 }
         )
         .onAppear { viewModel.onAppear() }
+        .onDisappear { viewModel.onDisappear() }
     }
 
     private var content: some View {
