@@ -14,11 +14,6 @@ enum StartButtonState {
     case stop
 }
 
-enum BackgroundState {
-    case normal
-    case tickActive
-}
-
 @Observable
 class MetronomeViewModel {
     @ObservationIgnored

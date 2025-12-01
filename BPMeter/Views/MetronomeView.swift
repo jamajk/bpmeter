@@ -81,13 +81,4 @@ private extension StartButtonState {
         case .stop: .red
         }
     }
-}
-
-private extension BackgroundState {
-    var backgroundColor: Color {
-        switch self {
-        case .normal: .blue
-        case .tickActive: .green
-        }
-    }
-}
+} 

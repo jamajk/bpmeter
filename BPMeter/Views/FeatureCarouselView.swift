@@ -14,7 +14,7 @@ struct FeatureCarouselView: View {
 
     var body: some View {
         TabView {
-            Tab("Tap Tempo", systemImage: "tray.and.arrow.down.fill") {
+            Tab("Tap Tempo", systemImage: "hand.tap.fill") {
                 TapTempoView(
                     viewModel: TapTempoViewModel(
                         client: TapTempoClient(),
@@ -23,7 +23,7 @@ struct FeatureCarouselView: View {
                 ).ignoresSafeArea()
             }
 
-            Tab("Metronome", systemImage: "tray.and.arrow.down.fill") {
+            Tab("Metronome", systemImage: "metronome.fill") {
                 MetronomeView(
                     viewModel: MetronomeViewModel(
                         client: MetronomeClient(),
@@ -34,7 +34,6 @@ struct FeatureCarouselView: View {
         }
         .ignoresSafeArea()
         .tabViewStyle(.automatic)
-        .background(Color.blue.ignoresSafeArea())
         .overlay(helpButtonOverlay)
         .sheet(isPresented: $isShowingHelp) {
             Text("Help xd")
@@ -56,10 +55,9 @@ struct FeatureCarouselView: View {
         Button(action: { isShowingHelp.toggle() }) {
             Image(systemName: "questionmark.circle")
                 .font(.system(size: 28))
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
                 .padding(24)
         }
-//            .frame(width: 44, height: 44)
         .buttonStyle(.plain)
     }
 }
