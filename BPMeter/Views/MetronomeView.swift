@@ -21,6 +21,9 @@ struct MetronomeView: View {
             metronomeContent
         }
         .animation(.easeOut(duration: 0.1), value: viewModel.background)
+        .onDisappear {
+            viewModel.stopPlaybackIfNeeded() // TODO: Investigate why there is a delay
+        }
     }
 
     private var metronomeContent: some View {

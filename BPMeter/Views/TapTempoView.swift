@@ -20,7 +20,13 @@ struct TapTempoView: View {
 
             Text(labelText)
         }
-        .onTapGesture { viewModel.onTap() }
+//        .onTapGesture { origin in
+//            viewModel.onTap()
+//        }
+        .onLongPressGesture(minimumDuration: 0) {
+            print("Touch Down")
+            viewModel.onTap()
+        }
     }
 
     private var labelText: String {
