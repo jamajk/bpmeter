@@ -15,6 +15,7 @@ class TapTempoViewModel {
     private let audioPlayer: AudioPlayerClient
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
+    private var viewportSize: CGSize?
 
     private(set) var background: BackgroundState = .normal
 
@@ -28,6 +29,14 @@ class TapTempoViewModel {
     ) {
         self.client = client
         self.audioPlayer = audioPlayer
+    }
+
+    func onAppear() {
+
+    }
+
+    func updateViewportSize(_ size: CGSize) {
+        viewportSize = size
     }
 
     func onTap() {

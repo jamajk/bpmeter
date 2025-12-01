@@ -49,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B508342EDE139B00051A7B /* SwiftUIRippleEffect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41B508322EDE139B00051A7B /* XCRemoteSwiftPackageReference "SwiftUIRippleEffect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RogyMD/SwiftUIRippleEffect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41B508332EDE139B00051A7B /* SwiftUIRippleEffect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41B508322EDE139B00051A7B /* XCRemoteSwiftPackageReference "SwiftUIRippleEffect" */;
+			productName = SwiftUIRippleEffect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B33B6A3240A78B300D675BC /* Project object */;
 }
