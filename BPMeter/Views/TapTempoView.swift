@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TapTempoView: View {
     @State private var viewModel: TapTempoViewModel
+    @State private var bubbleYPosition: CGFloat = 600
 
     init(viewModel: TapTempoViewModel) {
         self.viewModel = viewModel
@@ -16,17 +17,40 @@ struct TapTempoView: View {
 
     var body: some View {
         ZStack {
-            Color.blue
+            Rectangle()
+                .fill(viewModel.background.backgroundColor.gradient)
+                .edgesIgnoringSafeArea(.all)
 
-            Text(labelText)
+            Circle()
+                .fill(Color.red)
+                .frame(width: 120)
+                .position(y: bubbleYPosition)
+
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .edgesIgnoringSafeArea(.all)
+
+            content
         }
-//        .onTapGesture { origin in
-//            viewModel.onTap()
-//        }
-        .onLongPressGesture(minimumDuration: 0) {
-            print("Touch Down")
+        .animation(.easeOut(duration: 0.1), value: viewModel.background)
+        .onTapGesture { origin in
             viewModel.onTap()
         }
+        .onLongPressGesture(minimumDuration: 0) {
+            viewModel.onTap()
+        }
+        .onAppear {
+            withAnimation(.linear(duration: 7)) {
+                bubbleYPosition = 0
+            }
+        }
+    }
+
+    private var content: some View {
+        Text(labelText)
+            .font(.largeTitle)
+            .bold()
+            .foregroundStyle(.white)
     }
 
     private var labelText: String {

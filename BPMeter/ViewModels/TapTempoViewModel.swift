@@ -16,6 +16,12 @@ class TapTempoViewModel {
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
 
+    private(set) var background: BackgroundState = .normal
+
+    var bpmValue: Int {
+        client.roundedBPM
+    }
+
     init(
         client: TapTempoClient,
         audioPlayer: AudioPlayerClient
@@ -24,14 +30,11 @@ class TapTempoViewModel {
         self.audioPlayer = audioPlayer
     }
 
-    var bpmValue: Int {
-        client.roundedBPM
-    }
-
     func onTap() {
         removeResetTaskIfNeeded()
         client.onTapReceived()
         audioPlayer.playTickingSound(accented: false)
+        handleTickBackgroundColorChange()
         setupResetTask()
     }
 
@@ -46,5 +49,14 @@ class TapTempoViewModel {
     private func removeResetTaskIfNeeded() {
         resetTask?.cancel()
         resetTask = nil
+    }
+
+    @MainActor
+    private func handleTickBackgroundColorChange() { // TODO: Unify this with metronome
+        Task {
+            background = .tickActive
+            try await Task.sleep(for: .milliseconds(100))
+            background = .normal
+        }
     }
 }
