@@ -16,8 +16,11 @@ class TapTempoViewModel {
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
     private var viewportSize: CGSize?
+    private var isAnimatingBubble: Bool = false
 
     private(set) var background: BackgroundState = .normal
+    private(set) var bubbleXPosition: CGFloat = .zero
+    private(set) var bubbleYPosition: CGFloat = .zero // TODO: More bubbles
 
     var bpmValue: Int {
         client.roundedBPM
@@ -32,11 +35,16 @@ class TapTempoViewModel {
     }
 
     func onAppear() {
+        isAnimatingBubble = true
+    }
 
+    func onDisappear() {
+        isAnimatingBubble = false
     }
 
     func updateViewportSize(_ size: CGSize) {
         viewportSize = size
+        animateBubble() // TODO: Simplify this logic
     }
 
     func onTap() {
@@ -60,12 +68,29 @@ class TapTempoViewModel {
         resetTask = nil
     }
 
-    @MainActor
     private func handleTickBackgroundColorChange() { // TODO: Unify this with metronome
-        Task {
+        Task { @MainActor in
             background = .tickActive
             try await Task.sleep(for: .milliseconds(100))
             background = .normal
+        }
+    }
+
+    private func animateBubble() {
+        Task { @MainActor in
+            guard let viewportSize else { return }
+            while isAnimatingBubble {
+                let maxPointX = viewportSize.width
+                let maxPointY = viewportSize.height
+                let startingPositionX = CGFloat.random(in: 0...maxPointX)
+                let startingPositionY = maxPointY + 60 // + radius so it's hidden
+                bubbleXPosition = startingPositionX
+                bubbleYPosition = startingPositionY
+                withAnimation(.linear(duration: 10)) {
+                    bubbleYPosition = -60
+                }
+                try? await Task.sleep(for: .seconds(10))
+            }
         }
     }
 }
