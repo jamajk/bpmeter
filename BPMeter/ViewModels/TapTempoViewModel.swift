@@ -14,6 +14,8 @@ class TapTempoViewModel {
     @ObservationIgnored
     private let audioPlayer: AudioPlayerClient
     @ObservationIgnored
+    private let hapticClient: HapticFeedbackClient
+    @ObservationIgnored
     private var resetTask: Task<Void, Error>?
     private var viewportSize: CGSize?
     private var isAnimatingBubble: Bool = false
@@ -32,10 +34,12 @@ class TapTempoViewModel {
 
     init(
         client: TapTempoClient,
-        audioPlayer: AudioPlayerClient
+        audioPlayer: AudioPlayerClient,
+        hapticClient: HapticFeedbackClient
     ) {
         self.client = client
         self.audioPlayer = audioPlayer
+        self.hapticClient = hapticClient
     }
 
     func onAppear() {
@@ -55,6 +59,7 @@ class TapTempoViewModel {
         removeResetTaskIfNeeded()
         client.onTapReceived()
         audioPlayer.playTickingSound(accented: false)
+        hapticClient.vibrate()
         handleTickBackgroundColorChange()
         setupResetTask()
     }
