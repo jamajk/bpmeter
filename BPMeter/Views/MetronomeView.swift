@@ -16,7 +16,11 @@ struct MetronomeView: View {
 
     var body: some View {
         ZStack {
-            viewModel.background.backgroundColor
+            Rectangle()
+                .fill(viewModel.background.backgroundColor.gradient)
+
+            Rectangle()
+                .fill(.ultraThinMaterial)
 
             metronomeContent
         }
@@ -28,11 +32,10 @@ struct MetronomeView: View {
 
     private var metronomeContent: some View {
         VStack(spacing: 24) {
-            Text("Metronome")
-                .font(.largeTitle)
-
-            HStack {
-                Text("BPM: \(viewModel.currentBPM)")
+            VStack {
+                Text("\(viewModel.currentBPM)")
+                    .font(.body)
+                    .foregroundStyle(.white)
                 Slider(
                     value: Binding(
                         get: { Double(viewModel.currentBPM) },
@@ -40,6 +43,9 @@ struct MetronomeView: View {
                     ),
                     in: 30...240
                 )
+                Text("[beats per minute]")
+                    .font(.body)
+                    .foregroundStyle(.white)
             }
 
             HStack {
@@ -54,31 +60,27 @@ struct MetronomeView: View {
                 )
             }
 
-            Button(viewModel.buttonState.title) {
-                viewModel.onStartStopTapped()
+            Button(action: { viewModel.onStartStopTapped() }) {
+                viewModel.buttonState.icon
+                    .resizable()
+                    .frame(width: 44, height: 44)
+                    .foregroundStyle(viewModel.buttonState.backgroundColor)
+                    .shadow(color: viewModel.buttonState.backgroundColor, radius: 10)
             }
-            .padding()
-            .background(viewModel.buttonState.backgroundColor)
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.white)
-            .cornerRadius(12)
         }
         .padding()
     }
 }
 
 private extension StartButtonState {
-    var title: String {
-        switch self {
-        case .start: "Start"
-        case .stop: "Stop"
-        }
+    var icon: Image {
+        Image(systemName: "power.circle")
     }
 
     var backgroundColor: Color {
         switch self {
-        case .start: .green
-        case .stop: .red
+        case .start: .white
+        case .stop: .green
         }
     }
 } 
