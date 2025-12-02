@@ -11,6 +11,7 @@ struct FeatureCarouselView: View {
     @State var isShowingHelp: Bool = false
 
     private let audioPlayer = AudioPlayerClient() // separation of concerns is calling... maybe split initing viewmodels to viewmodel
+    private let hapticClient = HapticFeedbackClient()
 
     var body: some View {
         TabView {
@@ -18,7 +19,8 @@ struct FeatureCarouselView: View {
                 TapTempoView(
                     viewModel: TapTempoViewModel(
                         client: TapTempoClient(),
-                        audioPlayer: audioPlayer
+                        audioPlayer: audioPlayer,
+                        hapticClient: hapticClient
                     )
                 ).ignoresSafeArea()
             }
@@ -27,7 +29,8 @@ struct FeatureCarouselView: View {
                 MetronomeView(
                     viewModel: MetronomeViewModel(
                         client: MetronomeClient(),
-                        audioPlayer: audioPlayer
+                        audioPlayer: audioPlayer,
+                        hapticClient: hapticClient
                     )
                 ).ignoresSafeArea()
             }

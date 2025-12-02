@@ -21,6 +21,8 @@ class MetronomeViewModel {
     @ObservationIgnored
     private let audioPlayer: AudioPlayerClient
     @ObservationIgnored
+    private let hapticClient: HapticFeedbackClient
+    @ObservationIgnored
     private var subscribers = Set<AnyCancellable>()
 
     private(set) var background: BackgroundState = .normal
@@ -39,10 +41,12 @@ class MetronomeViewModel {
 
     init(
         client: MetronomeClient,
-        audioPlayer: AudioPlayerClient
+        audioPlayer: AudioPlayerClient,
+        hapticClient: HapticFeedbackClient
     ) {
         self.client = client
         self.audioPlayer = audioPlayer
+        self.hapticClient = hapticClient
 
         client.tick
             .receive(on: RunLoop.main)
@@ -74,6 +78,7 @@ class MetronomeViewModel {
     private func onMetronomeTick(type: BeatType) {
         handleTickBackgroundColorChange()
         audioPlayer.playTickingSound(accented: type == .accented)
+        hapticClient.vibrate()
     }
 
     @MainActor
