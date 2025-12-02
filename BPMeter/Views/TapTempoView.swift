@@ -69,23 +69,22 @@ struct TapTempoView: View {
                     speed: 1500
                 )
             )
+//            .sensoryFeedback(.alignment, trigger: viewModel.background == .tickActive)
     }
 
     private var content: some View {
         VStack(spacing: 8) {
             Text(labelText)
-                .font(.largeTitle)
-                .bold()
-                .foregroundStyle(.white)
+                .font(BPFont.lexendThinLargeTitle)
                 .contentTransition(.numericText())
                 .animation(.default, value: labelText)
 
             if viewModel.isBPMDetected {
                 Text("[beats per minute]")
-                    .font(.body)
-                    .foregroundStyle(.white)
+                    .font(BPFont.lexendThinBody)
             }
         }
+        .foregroundStyle(.white)
         .animation(.default, value: viewModel.isBPMDetected)
     }
 
