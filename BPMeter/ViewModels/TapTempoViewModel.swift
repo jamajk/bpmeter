@@ -26,6 +26,10 @@ class TapTempoViewModel {
         client.roundedBPM
     }
 
+    var isBPMDetected: Bool {
+        bpmValue != .zero
+    }
+
     init(
         client: TapTempoClient,
         audioPlayer: AudioPlayerClient
