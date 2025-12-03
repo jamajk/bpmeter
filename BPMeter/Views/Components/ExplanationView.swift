@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-struct Explanation {
-    let title: String
-    let tips: [String]
-}
-
 struct ExplanationView: View {
     let explanation: Explanation
 
@@ -20,11 +15,15 @@ struct ExplanationView: View {
             Text("\(explanation.title):")
                 .font(BPFont.lexendLightBody)
 
-            ForEach(explanation.tips, id: \.self) { tip in
+            ForEach(explanation.hints, id: \.text) { tip in
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text("·")
 
-                    Text(tip)
+                    if let imageName = tip.imageName {
+                        Text("\(tip.text) \(Image(systemName: imageName))")
+                    } else {
+                        Text(tip.text)
+                    }
                 }
                 .font(BPFont.lexendLightFootnote)
                 .padding(.leading, 16)
