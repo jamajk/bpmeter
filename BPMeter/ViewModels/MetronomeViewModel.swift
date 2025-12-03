@@ -17,11 +17,11 @@ enum StartButtonState {
 @Observable
 class MetronomeViewModel {
     @ObservationIgnored
-    private let client: MetronomeClient
+    private let client: MetronomeClientProtocol
     @ObservationIgnored
-    private let audioPlayer: AudioPlayerClient
+    private let audioPlayer: AudioPlayerClientProtocol
     @ObservationIgnored
-    private let hapticClient: HapticFeedbackClient
+    private let hapticClient: HapticFeedbackClientProtocol
     @ObservationIgnored
     private var subscribers = Set<AnyCancellable>()
 
@@ -40,9 +40,9 @@ class MetronomeViewModel {
     }
 
     init(
-        client: MetronomeClient,
-        audioPlayer: AudioPlayerClient,
-        hapticClient: HapticFeedbackClient
+        client: MetronomeClientProtocol,
+        audioPlayer: AudioPlayerClientProtocol,
+        hapticClient: HapticFeedbackClientProtocol
     ) {
         self.client = client
         self.audioPlayer = audioPlayer

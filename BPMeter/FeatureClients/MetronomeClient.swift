@@ -13,8 +13,18 @@ enum BeatType {
     case normal
 }
 
+protocol MetronomeClientProtocol: AnyObject {
+    var bpm: Int { get set }
+    var beatsPerMeasure: Int { get set }
+    var isRunning: Bool { get }
+    var tick: AnyPublisher<BeatType, Never> { get }
+
+    func onTapStartStop()
+    func stopIfRunning()
+}
+
 @Observable
-class MetronomeClient {
+class MetronomeClient: MetronomeClientProtocol {
     struct Constants {
         static let startingBPM: Int = 120
         static let startingBeatsPerMeasure: Int = 4
