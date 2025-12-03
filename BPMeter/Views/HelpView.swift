@@ -13,14 +13,16 @@ struct HelpView: View {
     private let explanations: [Explanation] = [
         Explanation(
             title: "Tap tempo",
-            tips: [
-                "Tap on the screen rhytmically to determine the tempo."
+            hints: [
+                Hint(text: "Tap on the screen rhytmically to determine the tempo.")
             ]
         ),
         Explanation(
             title: "Metronome",
-            tips: [
-                "TODO."
+            hints: [
+                Hint(text: "Rotate the knob to select the desired tempo.", imageName: "arrow.trianglehead.2.clockwise.rotate.90"),
+                Hint(text: "Select how many beats should count as one measure. [todo]", imageName: "plus.forwardslash.minus"),
+                Hint(text: "Press the button below to turn the metronome on/off.")
             ]
         )
     ]
