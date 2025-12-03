@@ -12,18 +12,42 @@ struct HelpView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Help xd")
+            List {
+                Color.gray
+                    .frame(height: 200)
+                    .overlay(Text("How to tap tempo"))
+
+                Color.gray
+                    .frame(height: 200)
+                    .overlay(Text("How to metronome"))
 
                 NavigationLink(
                     destination: { Text("Lorem ipsum") },
-                    label: { Text("Licences") }
+                    label: { Text("Settings").font(BPFont.lexendLightBody) }
+                )
+
+                NavigationLink(
+                    destination: { Text("Lorem ipsum") },
+                    label: { Text("Software credits").font(BPFont.lexendLightBody) }
                 )
             }
+            .listStyle(.inset)
             .toolbar {
-                Button("Close", action: onClose)
+                ToolbarItem(placement: .title) {
+                    Text("how to")
+                        .font(BPFont.lexendThinLargeTitle)
+                }
+
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: onClose) {
+                        Image(systemName: "xmark")
+                    }
+                }
             }
-            .padding()
         }
+    }
+
+    private var divider: some View {
+        Divider().padding(.vertical, 8)
     }
 }
