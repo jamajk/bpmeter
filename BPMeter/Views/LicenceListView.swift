@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct LicenceListView: View {
+    private let licences: [Licence] = [
+        .rippleEffect,
+        .fontLexend
+    ]
+
     var body: some View {
         List {
-            NavigationLink(
-                destination: { Text("Lorem ipsum") },
-                label: { Text("SwiftUIRippleEffect").font(BPFont.lexendLightBody) }
-            )
-
-            NavigationLink(
-                destination: { Text("Lorem ipsum") },
-                label: { Text("Lexend").font(BPFont.lexendLightBody) }
-            )
+            ForEach(licences, id: \.fileName) { licence in
+                NavigationLink(
+                    destination: { LicenceDetailsView(licence: licence) },
+                    label: { Text(licence.displayName).font(BPFont.lexendLightBody) }
+                )
+            }
         }
         .toolbar {
             ToolbarItem(placement: .title) {
