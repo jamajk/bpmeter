@@ -10,11 +10,11 @@ import SwiftUI
 @Observable
 class TapTempoViewModel {
     @ObservationIgnored
-    private let client: TapTempoClient
+    private let client: TapTempoClientProtocol
     @ObservationIgnored
-    private let audioPlayer: AudioPlayerClient
+    private let audioPlayer: AudioPlayerClientProtocol
     @ObservationIgnored
-    private let hapticClient: HapticFeedbackClient
+    private let hapticClient: HapticFeedbackClientProtocol
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
     private var viewportSize: CGSize?
@@ -33,9 +33,9 @@ class TapTempoViewModel {
     }
 
     init(
-        client: TapTempoClient,
-        audioPlayer: AudioPlayerClient,
-        hapticClient: HapticFeedbackClient
+        client: TapTempoClientProtocol,
+        audioPlayer: AudioPlayerClientProtocol,
+        hapticClient: HapticFeedbackClientProtocol
     ) {
         self.client = client
         self.audioPlayer = audioPlayer

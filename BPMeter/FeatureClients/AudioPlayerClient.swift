@@ -7,7 +7,11 @@
 
 import AVFoundation
 
-class AudioPlayerClient { // should probably split this file
+protocol AudioPlayerClientProtocol {
+    func playTickingSound(accented: Bool)
+}
+
+class AudioPlayerClient: AudioPlayerClientProtocol {
     private var accentPlayer: AVAudioPlayer?
     private var normalPlayer: AVAudioPlayer?
 

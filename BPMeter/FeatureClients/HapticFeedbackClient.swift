@@ -7,7 +7,11 @@
 
 import UIKit
 
-struct HapticFeedbackClient {
+protocol HapticFeedbackClientProtocol {
+    func vibrate()
+}
+
+struct HapticFeedbackClient: HapticFeedbackClientProtocol {
     private let generator = UIImpactFeedbackGenerator(style: .light)
 
     func vibrate() {

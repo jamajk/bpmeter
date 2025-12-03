@@ -100,7 +100,3 @@ struct TapTempoView: View {
         return String(viewModel.bpmValue)
     }
 }
-
-//#Preview {
-//    TapTempoView() // TODO: need an audio player mock
-//}

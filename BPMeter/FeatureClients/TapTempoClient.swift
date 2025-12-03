@@ -4,10 +4,18 @@
 //
 //  Created by Jakub Majkowski on 28/11/2025.
 //
+
 import SwiftUI
 
+protocol TapTempoClientProtocol {
+    var roundedBPM: Int { get }
+
+    func onTapReceived()
+    func resetCounter()
+}
+
 @Observable
-class TapTempoClient {
+class TapTempoClient: TapTempoClientProtocol {
     private(set) var roundedBPM: Int = 0
 
     @ObservationIgnored
@@ -23,6 +31,8 @@ class TapTempoClient {
     @ObservationIgnored
     private var timerFinish: DispatchTime!
 
+    // MARK: - Internal functions
+
     func onTapReceived() {
         tapCount += 1
         roundedBPM = Int(calculateBPM())
@@ -33,6 +43,8 @@ class TapTempoClient {
         strides.removeAll()
         tapCount = 0
     }
+
+    // MARK: - Private functions
 
     private func calculateBPM() -> Double {
         if tapCount == 1 {
