@@ -10,16 +10,28 @@ import SwiftUI
 struct HelpView: View {
     let onClose: () -> Void
 
+    private let explanations: [Explanation] = [
+        Explanation(
+            title: "Tap tempo",
+            tips: [
+                "Tap on the screen rhytmically to determine the tempo."
+            ]
+        ),
+        Explanation(
+            title: "Metronome",
+            tips: [
+                "TODO."
+            ]
+        )
+    ]
+
     var body: some View {
         NavigationView {
             List {
-                Color.gray
-                    .frame(height: 200)
-                    .overlay(Text("How to tap tempo"))
-
-                Color.gray
-                    .frame(height: 200)
-                    .overlay(Text("How to metronome"))
+                ForEach(explanations, id: \.title) { explanation in
+                    ExplanationView(explanation: explanation)
+                        .padding(.vertical, 8)
+                }
 
                 NavigationLink(
                     destination: { SettingsView() },
@@ -44,11 +56,38 @@ struct HelpView: View {
                     }
                 }
             }
+            .tint(.primary)
         }
     }
 
     private var divider: some View {
         Divider().padding(.vertical, 8)
+    }
+}
+
+struct Explanation {
+    let title: String
+    let tips: [String]
+}
+
+struct ExplanationView: View {
+    let explanation: Explanation
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("\(explanation.title):")
+                .font(BPFont.lexendLightBody)
+
+            ForEach(explanation.tips, id: \.self) { tip in
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text("·")
+
+                    Text(tip)
+                }
+                .font(BPFont.lexendLightFootnote)
+                .padding(.leading, 16)
+            }
+        }
     }
 }
 
