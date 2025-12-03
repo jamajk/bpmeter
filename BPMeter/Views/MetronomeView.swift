@@ -32,21 +32,22 @@ struct MetronomeView: View {
 
     private var metronomeContent: some View {
         VStack(spacing: 24) {
-            VStack {
+            VStack(spacing: 8) {
                 Text("\(viewModel.currentBPM)")
-                    .font(.body)
-                    .foregroundStyle(.white)
-                Slider(
+                    .font(BPFont.lexendLightLargeTitle)
+
+                Text("[beats per minute]")
+                    .font(BPFont.lexendLightFootnote)
+                    .padding(.bottom, 16)
+
+                NeomorphicKnob(
                     value: Binding(
                         get: { Double(viewModel.currentBPM) },
                         set: { viewModel.onBPMChanged(to: Int($0)) }
-                    ),
-                    in: 30...240
+                    )
                 )
-                Text("[beats per minute]")
-                    .font(.body)
-                    .foregroundStyle(.white)
             }
+            .foregroundStyle(.white)
 
             HStack {
                 Text("Beats: \(viewModel.currentBeatsPerMeasure)")
