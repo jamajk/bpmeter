@@ -15,8 +15,9 @@ struct NeomorphicKnob: View {
     @State private var lastAngle: Double = 0
     @State private var isDragging = false
     @State private var lastHapticValue: Int = 0
+    @State private var accumulatedValue: Double = 0
 
-    private let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
+    private let hapticFeedback = UISelectionFeedbackGenerator()
 
     // Convert value (60-240) to rotation angle
     // At value 120 (center), rotation should be 0°
@@ -92,6 +93,7 @@ struct NeomorphicKnob: View {
                     if !isDragging {
                         isDragging = true
                         lastAngle = degrees
+                        accumulatedValue = value
                         lastHapticValue = Int(value)
                         hapticFeedback.prepare()
                         return
@@ -110,24 +112,29 @@ struct NeomorphicKnob: View {
                     // Convert angle change to value change
                     // 2 degrees of rotation = 1 value unit for easier control
                     let valueChange = angleDelta / 2.0
-                    let newValue = value + valueChange
-                    let clampedValue = max(60, min(240, newValue))
-                    value = clampedValue
+                    accumulatedValue += valueChange
 
-                    // Trigger haptic feedback on integer change
-                    let currentIntValue = Int(clampedValue)
-                    if currentIntValue != lastHapticValue {
-                        hapticFeedback.impactOccurred()
-                        lastHapticValue = currentIntValue
+                    // Snap to nearest integer like native picker
+                    let snappedValue = round(accumulatedValue)
+                    let clampedValue = max(60, min(240, snappedValue))
+
+                    // Only update if the integer value changed
+                    let newIntValue = Int(clampedValue)
+                    if newIntValue != lastHapticValue {
+                        value = clampedValue
+                        hapticFeedback.selectionChanged()
+                        lastHapticValue = newIntValue
                     }
 
                     lastAngle = degrees
                 }
                 .onEnded { _ in
                     isDragging = false
+                    // Snap to final integer value
+                    value = round(value)
                 }
         )
-        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: rotationAngle)
+        .animation(.interactiveSpring(response: 0.25, dampingFraction: 0.8), value: value)
         .onAppear {
             lastHapticValue = Int(value)
             hapticFeedback.prepare()
