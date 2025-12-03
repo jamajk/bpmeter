@@ -34,10 +34,13 @@ struct FeatureCarouselView: View {
                     )
                 ).ignoresSafeArea()
             }
+
         }
-        .ignoresSafeArea()
+        .overlay(alignment: .topTrailing) {
+            helpButton
+                .padding(.horizontal, 16)
+        }
         .tabViewStyle(.automatic)
-        .overlay(helpButtonOverlay)
         .sheet(isPresented: $isShowingHelp) {
             HelpView {
                 isShowingHelp = false
@@ -45,22 +48,24 @@ struct FeatureCarouselView: View {
         }
     }
 
-    private var helpButtonOverlay: some View {
-        VStack {
-            Spacer()
-            helpButton
-                .padding(.bottom, 64)
-        }
-    }
-
+    @ViewBuilder
     private var helpButton: some View {
-        Button(action: { isShowingHelp.toggle() }) {
-            Image(systemName: "questionmark.circle")
-                .font(.system(size: 28))
-                .foregroundColor(.white)
-                .padding(24)
+        if #available(iOS 26.0, *) {
+            Button(action: { isShowingHelp.toggle() }) {
+                Image(systemName: "questionmark")
+                    .font(.system(size: 22))
+                    .foregroundColor(.gray)
+            }
+            .buttonStyle(.glass)
+        } else {
+            Button(action: { isShowingHelp.toggle() }) {
+                Image(systemName: "questionmark.circle")
+                    .font(.system(size: 28))
+                    .foregroundColor(.white)
+            }
+            .frame(width: 44, height: 44)
+            .buttonStyle(.plain)
         }
-        .buttonStyle(.plain)
     }
 }
 
