@@ -17,12 +17,12 @@ class TapTempoViewModel {
     private let hapticClient: HapticFeedbackClientProtocol
     @ObservationIgnored
     private var resetTask: Task<Void, Error>?
-    private var viewportSize: CGSize?
-    private var isAnimatingBubble: Bool = false
 
     private(set) var background: BackgroundState = .normal
-    private(set) var bubbleXPosition: CGFloat = .zero
-    private(set) var bubbleYPosition: CGFloat = .zero // TODO: More bubbles
+
+    var floatingBallsViewModel: FloatingBallsViewModel
+    var rippleOrigin: CGPoint = .zero
+    var rippleTrigger: Bool = false
 
     var bpmValue: Int {
         client.roundedBPM
@@ -40,23 +40,14 @@ class TapTempoViewModel {
         self.client = client
         self.audioPlayer = audioPlayer
         self.hapticClient = hapticClient
+        floatingBallsViewModel = FloatingBallsViewModel()
     }
 
-    func onAppear() {
-        isAnimatingBubble = true
-    }
-
-    func onDisappear() {
-        isAnimatingBubble = false
-    }
-
-    func updateViewportSize(_ size: CGSize) {
-        viewportSize = size
-        animateBubble() // TODO: Simplify this logic
-    }
-
-    func onTap() {
+    func onTap(origin: CGPoint) {
         removeResetTaskIfNeeded()
+        rippleOrigin = origin
+        rippleTrigger.toggle()
+        floatingBallsViewModel.handleTap(at: origin)
         client.onTapReceived()
         audioPlayer.playTickingSound(accented: false)
         hapticClient.vibrate()
@@ -82,24 +73,6 @@ class TapTempoViewModel {
             background = .tickActive
             try await Task.sleep(for: .milliseconds(100))
             background = .normal
-        }
-    }
-
-    private func animateBubble() {
-        Task { @MainActor in
-            guard let viewportSize else { return }
-            while isAnimatingBubble {
-                let maxPointX = viewportSize.width
-                let maxPointY = viewportSize.height
-                let startingPositionX = CGFloat.random(in: 0...maxPointX)
-                let startingPositionY = maxPointY + 60 // + radius so it's hidden
-                bubbleXPosition = startingPositionX
-                bubbleYPosition = startingPositionY
-                withAnimation(.linear(duration: 10)) {
-                    bubbleYPosition = -60
-                }
-                try? await Task.sleep(for: .seconds(10))
-            }
         }
     }
 }

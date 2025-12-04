@@ -11,9 +11,6 @@ import SwiftUIRippleEffect
 struct TapTempoView: View {
     @State private var viewModel: TapTempoViewModel
 
-    @State private var rippleOrigin: CGPoint = .zero
-    @State private var rippleTrigger: Bool = false
-
     init(viewModel: TapTempoViewModel) {
         self.viewModel = viewModel
     }
@@ -22,10 +19,7 @@ struct TapTempoView: View {
         ZStack {
             background
 
-            Circle()
-                .fill(Color.white.opacity(0.5))
-                .frame(width: 120)
-                .position(x: viewModel.bubbleXPosition, y: viewModel.bubbleYPosition)
+            FloatingBallsView(viewModel: viewModel.floatingBallsViewModel)
 
             blurLayer
 
@@ -36,31 +30,18 @@ struct TapTempoView: View {
             DragGesture(minimumDistance: 0)
                 .onChanged { gesture in
                     guard gesture.velocity == .zero else { return }
-                    rippleOrigin = gesture.location
-                    rippleTrigger.toggle()
-                    viewModel.onTap()
+                    viewModel.onTap(origin: gesture.location)
                 }
         )
-        .onAppear { viewModel.onAppear() }
-        .onDisappear { viewModel.onDisappear() }
     }
 
     private var background: some View {
         Rectangle()
             .fill(viewModel.background.backgroundColor.gradient)
             .edgesIgnoringSafeArea(.all)
-            .background(
-                GeometryReader { reader in
-                    Color.clear // TODO: Bugs out when switching to metronome and back
-                        .onAppear { viewModel.updateViewportSize(reader.size) }
-                        .onChange(of: reader.size) { _, newSize in
-                            viewModel.updateViewportSize(newSize)
-                        }
-                }
-            )
             .rippleEffect(
-                at: rippleOrigin,
-                trigger: rippleTrigger,
+                at: viewModel.rippleOrigin,
+                trigger: viewModel.rippleTrigger,
                 configuration: .init(
                     duration: 1.5,
                     amplitude: 30,
