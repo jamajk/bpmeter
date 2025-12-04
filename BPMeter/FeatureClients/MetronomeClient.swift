@@ -64,6 +64,7 @@ class MetronomeClient: MetronomeClientProtocol {
             stopTimer()
         } else {
             guard bpm > 0 else { return }
+            handleTick()
             startTimer()
         }
     }
