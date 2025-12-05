@@ -54,7 +54,7 @@ class BallScene: SKScene {
     }
 
     func createBall() {
-        let radius = CGFloat.random(in: 60...100)
+        let radius = CGFloat.random(in: 70...110)
         let ball = SKShapeNode(circleOfRadius: radius)
 
         // Random position, ensuring ball is fully within bounds
@@ -63,8 +63,8 @@ class BallScene: SKScene {
         ball.position = CGPoint(x: x, y: y)
 
         // White fill
-        ball.fillColor = .white
-        ball.strokeColor = .white
+        ball.fillColor = .lightGray
+        ball.strokeColor = .lightGray
         ball.lineWidth = 2
 
         // Physics body
