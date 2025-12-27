@@ -19,6 +19,13 @@ class SettingsClient: SettingsClientProtocol {
 
     init(storageClient: StorageClientProtocol) {
         self.storageClient = storageClient
+
+        let didRunAppBefore = storageClient.readValue(for: StorageKeys.didRunAppBefore)
+        if !didRunAppBefore { // maybe move this somewhere else?
+            storageClient.setValue(true, for: .isSoundOn)
+            storageClient.setValue(true, for: .isHapticFeedbackOn)
+            storageClient.setValue(true, for: .didRunAppBefore)
+        }
     }
 
     var isAudioOn: Bool {
@@ -26,6 +33,6 @@ class SettingsClient: SettingsClientProtocol {
     }
 
     var isHapticFeedbackOn: Bool {
-        storageClient.readValue(for: .isHapticFeedbackOn) // TODO: First run should return true
+        storageClient.readValue(for: .isHapticFeedbackOn)
     }
 }
