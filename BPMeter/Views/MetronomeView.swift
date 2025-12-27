@@ -48,18 +48,19 @@ struct MetronomeView: View {
                 )
             }
             .foregroundStyle(.white)
+            .padding(.bottom, 24)
 
-            HStack {
-                Text("Beats: \(viewModel.currentBeatsPerMeasure)")
-                Stepper(
-                    "",
-                    value: Binding(
-                        get: { viewModel.currentBeatsPerMeasure },
-                        set: { viewModel.onBeatsPerMeasureChanged(to: $0) }
-                    ),
-                    in: 1...12
-                )
-            }
+//            HStack {
+//                Text("Beats: \(viewModel.currentBeatsPerMeasure)")
+//                Stepper(
+//                    "",
+//                    value: Binding(
+//                        get: { viewModel.currentBeatsPerMeasure },
+//                        set: { viewModel.onBeatsPerMeasureChanged(to: $0) }
+//                    ),
+//                    in: 1...12
+//                )
+//            }
 
             Button(action: { viewModel.onStartStopTapped() }) {
                 viewModel.buttonState.icon
