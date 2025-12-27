@@ -8,4 +8,5 @@
 enum StorageKeys: String {
     case isSoundOn = "isSoundOn"
     case isHapticFeedbackOn = "isHapticFeedbackOn"
+    case didRunAppBefore = "didRunAppBefore"
 }
