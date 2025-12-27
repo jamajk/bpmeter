@@ -10,6 +10,8 @@ import SwiftUI
 struct HelpView: View {
     let onClose: () -> Void
 
+    @Environment(StorageClient.self) private var storageClient
+
     private let explanations: [Explanation] = [
         Explanation(
             title: "Tap tempo",
@@ -36,7 +38,7 @@ struct HelpView: View {
                 }
 
                 NavigationLink(
-                    destination: { SettingsView() },
+                    destination: { SettingsView(viewModel: SettingsViewModel(storageClient: storageClient)) }, // TODO: Fix initing this VM
                     label: { Text("Settings").font(BPFont.lexendLightBody) }
                 )
 

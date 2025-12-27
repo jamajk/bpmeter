@@ -10,6 +10,8 @@ import SwiftUI
 struct FeatureCarouselView: View {
     @State var isShowingHelp: Bool = false
 
+    private let storageClient = StorageClient()
+    private let settingsClient = SettingsClient(storageClient: StorageClient()) // TODO: Fix
     private let audioPlayer = AudioPlayerClient() // separation of concerns is calling... maybe split initing viewmodels to viewmodel
     private let hapticClient = HapticFeedbackClient()
 
@@ -20,7 +22,8 @@ struct FeatureCarouselView: View {
                     viewModel: TapTempoViewModel(
                         client: TapTempoClient(),
                         audioPlayer: audioPlayer,
-                        hapticClient: hapticClient
+                        hapticClient: hapticClient,
+                        settingsClient: settingsClient
                     )
                 ).ignoresSafeArea()
             }
@@ -30,7 +33,8 @@ struct FeatureCarouselView: View {
                     viewModel: MetronomeViewModel(
                         client: MetronomeClient(),
                         audioPlayer: audioPlayer,
-                        hapticClient: hapticClient
+                        hapticClient: hapticClient,
+                        settingsClient: settingsClient
                     )
                 ).ignoresSafeArea()
             }
@@ -45,6 +49,7 @@ struct FeatureCarouselView: View {
             HelpView {
                 isShowingHelp = false
             }
+            .environment(storageClient)
         }
     }
 

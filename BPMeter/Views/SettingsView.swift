@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var isSoundOn: Bool = true // TODO: Placeholder
-    @State var isHapticFeedbackOn: Bool = true // TODO: Placeholder
+    @State var viewModel: SettingsViewModel
+
     var body: some View {
         List {
-            Toggle(isOn: $isSoundOn) {
+            Toggle(isOn: $viewModel.isAudioOn) {
                 Text("Sounds").font(BPFont.lexendLightBody)
             }
 
-            Toggle(isOn: $isHapticFeedbackOn) {
+            Toggle(isOn: $viewModel.isHapticFeedbackOn) {
                 Text("Haptic feedback").font(BPFont.lexendLightBody)
             }
         }
