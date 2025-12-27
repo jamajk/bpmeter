@@ -16,6 +16,8 @@ class TapTempoViewModel {
     @ObservationIgnored
     private let hapticClient: HapticFeedbackClientProtocol
     @ObservationIgnored
+    private let settingsClient: SettingsClientProtocol
+    @ObservationIgnored
     private var resetTask: Task<Void, Error>?
 
     private(set) var background: BackgroundState = .normal
@@ -35,11 +37,13 @@ class TapTempoViewModel {
     init(
         client: TapTempoClientProtocol,
         audioPlayer: AudioPlayerClientProtocol,
-        hapticClient: HapticFeedbackClientProtocol
+        hapticClient: HapticFeedbackClientProtocol,
+        settingsClient: SettingsClientProtocol
     ) {
         self.client = client
         self.audioPlayer = audioPlayer
         self.hapticClient = hapticClient
+        self.settingsClient = settingsClient
         floatingBallsViewModel = FloatingBallsViewModel()
     }
 
@@ -49,8 +53,12 @@ class TapTempoViewModel {
         rippleTrigger.toggle()
         floatingBallsViewModel.handleTap(at: origin)
         client.onTapReceived()
-        audioPlayer.playTickingSound(accented: false)
-        hapticClient.vibrate()
+        if settingsClient.isAudioOn {
+            audioPlayer.playTickingSound(accented: false)
+        }
+        if settingsClient.isHapticFeedbackOn {
+            hapticClient.vibrate()
+        }
         handleTickBackgroundColorChange()
         setupResetTask()
     }
