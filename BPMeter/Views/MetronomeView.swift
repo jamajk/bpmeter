@@ -62,12 +62,8 @@ struct MetronomeView: View {
 //                )
 //            }
 
-            Button(action: { viewModel.onStartStopTapped() }) {
-                viewModel.buttonState.icon
-                    .resizable()
-                    .frame(width: 44, height: 44)
-                    .foregroundStyle(viewModel.buttonState.backgroundColor)
-                    .shadow(color: viewModel.buttonState.backgroundColor, radius: 10)
+            NeomorphicToggle(buttonState: viewModel.buttonState) {
+                viewModel.onStartStopTapped()
             }
         }
         .padding()
