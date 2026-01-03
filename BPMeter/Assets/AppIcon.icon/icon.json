@@ -9,34 +9,8 @@
     {
       "layers" : [
         {
-          "blend-mode-specializations" : [
-            {
-              "appearance" : "tinted",
-              "value" : "normal"
-            }
-          ],
-          "image-name" : "ChatGPT Image 4 gru 2025 o 23_33_55.png",
-          "name" : "ChatGPT Image 4 gru 2025 o 23_33_55",
-          "opacity-specializations" : [
-            {
-              "value" : 1
-            },
-            {
-              "appearance" : "dark",
-              "value" : 0.8
-            },
-            {
-              "appearance" : "tinted",
-              "value" : 1
-            }
-          ],
-          "position" : {
-            "scale" : 1,
-            "translation-in-points" : [
-              0,
-              0
-            ]
-          }
+          "image-name" : "Metronome.png",
+          "name" : "Metronome"
         }
       ],
       "shadow" : {
